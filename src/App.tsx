@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Outlet,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -13,10 +14,11 @@ import Winners from "./views/Winners";
 import Resources from "./views/Resources";
 import Speakers from "./views/Speakers";
 import Calendar from "./views/Calendar";
+import Navbar from "./components/Navbar";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/">
+    <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="/about" element={<Home />} />
       <Route path="/calendar" element={<Calendar />} />
@@ -28,6 +30,15 @@ const router = createBrowserRouter(
     </Route>,
   ),
 );
+
+function Layout() {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
+}
 
 function App() {
   return <RouterProvider router={router} />;
