@@ -15,6 +15,7 @@ import Resources from "./views/Resources";
 import Speakers from "./views/Speakers";
 import Calendar from "./views/Calendar";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +37,7 @@ function Layout() {
     <>
       <Navbar />
       <Outlet />
+      <Footer />
     </>
   );
 }

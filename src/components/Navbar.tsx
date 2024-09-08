@@ -19,7 +19,7 @@ function Navbar() {
 
   return (
     <nav className="flex items-center justify-center flex-wrap bg-dystopian-blue">
-      <div className="w-5/6 lg:w-3/4 flex items-center justify-between flex-wrap p-2">
+      <div className="flex items-center justify-between flex-wrap p-2">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <Link to="/">
             <img className="h-12 w-12 mr-2" src={Logo} />
