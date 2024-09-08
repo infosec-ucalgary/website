@@ -16,13 +16,17 @@ function Navbar() {
   ];
 
   return (
-    <nav className="flex items-center justify-center flex-wrap bg-dystopian-blue">
+    <nav className="flex items-center justify-center flex-wrap bg-dark-gray bg-opacity-50">
       <div className="w-5/6 lg:w-2/3 flex items-center justify-between flex-wrap p-2">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <Link to="/"></Link>
-          <span className="text-xl tracking-tight">
-            UofC CyberSecurity Club
-          </span>
+          <div className="flex flex-shrink-0 items-center">
+            <img
+              alt="UofC CyberSec Club"
+              src="src/images/wordmark.png"
+              className="h-5 w-auto"
+            />
+          </div>
         </div>
         <div className="block lg:hidden">
           <button

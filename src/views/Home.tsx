@@ -1,11 +1,12 @@
-import Navbar from "../components/Navbar";
+import React from "react";
+import Layout from "../components/Layout";
 
-function Home() {
+const Home: React.FC = () => {
   return (
-    <>
-      <Navbar />
-    </>
+    <Layout>
+      <div>Under Construction</div>
+    </Layout>
   );
-}
+};
 
 export default Home;

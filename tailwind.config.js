@@ -20,6 +20,9 @@ export default {
         "dystopian-blue": "#1D1D8C",
         "electric-plum": "#742E72",
       },
+      backgroundImage: {
+        "site-background": "url('./src/images/background.png')",
+      },
     },
   },
   plugins: [],
