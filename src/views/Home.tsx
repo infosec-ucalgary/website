@@ -62,7 +62,7 @@ function Home() {
           <div className="w-2/3 mx-auto my-6  text-center">
             <p className="text-center text-4xl">Email us at:</p>
             <p className="text-center text-3xl md:text-5xl font-bold break-all">
-              infosec.ucalgary@gmail.com
+              cybersec.club@ucalgary.ca
             </p>
           </div>
           <div className="w-2/3 mx-auto my-4">
