@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import Logo from "@/assets/logo.svg";
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const location = useLocation();
@@ -16,17 +18,15 @@ function Navbar() {
   ];
 
   return (
-    <nav className="flex items-center justify-center flex-wrap bg-dark-gray bg-opacity-50">
-      <div className="w-5/6 lg:w-2/3 flex items-center justify-between flex-wrap p-2">
+    <nav className="flex items-center justify-center flex-wrap bg-dystopian-blue">
+      <div className="flex items-center justify-between flex-wrap p-2">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <Link to="/"></Link>
-          <div className="flex flex-shrink-0 items-center">
-            <img
-              alt="UofC CyberSec Club"
-              src="src/images/wordmark.png"
-              className="h-5 w-auto"
-            />
-          </div>
+          <Link to="/">
+            <img className="h-12 w-12 mr-2" src={Logo} />
+          </Link>
+          <span className="text-xl tracking-tight">
+            UofC CyberSecurity Club
+          </span>
         </div>
         <div className="block lg:hidden">
           <button

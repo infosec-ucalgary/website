@@ -1,16 +1,15 @@
-import React from "react";
-
-const Footer: React.FC = () => {
+function Footer() {
   return (
-    <footer className="bg-dark-gray bg-opacity-50 text-white py-4">
-      <div className="container mx-auto text-center">
-        <p>
-          &copy; {new Date().getFullYear()} UofC CyberSecurity Club. All rights
-          reserved.
-        </p>
+    <div className="mt-16">
+      <div className="pb-6 w-full text-center inline-block align-middle">
+        <span>
+          We are a group of students from the University of Calgary who are
+          dedicated to learning cyber security.
+          <br /> &copy; 2021 - Present
+        </span>
       </div>
-    </footer>
+    </div>
   );
-};
+}
 
 export default Footer;

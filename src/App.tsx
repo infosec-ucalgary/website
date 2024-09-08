@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Outlet,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -13,29 +14,36 @@ import Winners from "./views/Winners";
 import Resources from "./views/Resources";
 import Speakers from "./views/Speakers";
 import Calendar from "./views/Calendar";
-import About from "./views/About";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/">
+    <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      <Route path="/about" element={<About />} />
+      <Route path="/about" element={<Home />} />
       <Route path="/calendar" element={<Calendar />} />
       <Route path="/speakers" element={<Speakers />} />
       <Route path="/resources" element={<Resources />} />
       <Route path="/winners" element={<Winners />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
-function App() {
+function Layout() {
   return (
-    <div className="bg-site-background bg-cover bg-no-repeat bg-fixed min-h-screen">
-      <RouterProvider router={router} />
-    </div>
+    <>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </>
   );
+}
+
+function App() {
+  return <RouterProvider router={router} />;
 }
 
 export default App;
