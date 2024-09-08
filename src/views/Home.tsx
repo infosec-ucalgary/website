@@ -1,3 +1,5 @@
+import { ReactTyped } from "react-typed";
+
 import Logo from "@/assets/logo.svg";
 import DiscordLogo from "@/assets/discord-logo.png";
 import YoutubeLogo from "@/assets/youtube-logo.png";
@@ -32,6 +34,29 @@ function Home() {
                 skills in the field of cybersecurity, and to connect these
                 students with industry professionals.
               </p>
+            </div>
+            <div className="w-5/6 md:w-2/3 xl:w-2/5 mx-auto py-12 overflow-hidden">
+              <div className="border-2 bg-gray-800 rounded-full py-2 px-4 text-xl">
+                <span className="text-[#9289b8]">root@magpie ~$ </span>
+                <span className="text-white">echo </span>
+                <ReactTyped
+                  className="text-white"
+                  strings={[
+                    "SQL injection",
+                    "privilege escalation",
+                    "University of Calgary",
+                    "XXS injection",
+                    "web exploitation",
+                    "capture the flag",
+                    "ROP chain",
+                    "cryptography",
+                  ]}
+                  typeSpeed={60}
+                  backSpeed={50}
+                  cursorChar="▮"
+                  loop
+                />
+              </div>
             </div>
           </section>
           <div className="w-2/3 mx-auto my-6  text-center">
