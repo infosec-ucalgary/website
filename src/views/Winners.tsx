@@ -1,12 +1,10 @@
-import React from "react";
-import Layout from "../components/Layout";
+function Winners() {
+    return (
 
-const Winners: React.FC = () => {
-  return (
-    <Layout>
-      <div>Under Construction</div>
-    </Layout>
-  );
-};
+        <div>Under Construction</div>
+
+    )
+}
+
 
 export default Winners;

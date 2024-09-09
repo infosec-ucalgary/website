@@ -29,7 +29,7 @@
 }
 
 .shiny-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-1.5rem);
 }
 
 .shiny-card:hover::before {
@@ -46,6 +46,17 @@
   }
 }
 
+
+.fade-in {
+  opacity: 0;
+  filter: blur(5px);
+  transition: opacity 0.5s ease-in, filter 0.5s ease-in;
+}
+
+.fade-in.loaded {
+  opacity: 1;
+  filter: blur(0);
+}
 
 ::-webkit-scrollbar {
   width: 0.5vw; 

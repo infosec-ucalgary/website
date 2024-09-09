@@ -10,9 +10,9 @@ function Home() {
     <section>
       <header className="text-center pb-12">
         <img className="max-h-[600px] mx-auto" src={Logo} />
-        <p className="text-center text-4xl"> UofC CyberSecurity Club</p>
+        <p className="text-center text-4xl text-lavendar"> UofC CyberSecurity Club</p>
         <svg
-          className="animate-bounce w-16 h-16 text-gray-900 mx-auto mt-12"
+          className="animate-bounce w-16 h-16 text-gray-900 mx-auto mt-12 text-lavendar"
           fill="none"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -60,19 +60,19 @@ function Home() {
             </div>
           </section>
           <div className="w-2/3 mx-auto my-6  text-center">
-            <p className="text-center text-4xl">Email us at:</p>
-            <p className="text-center text-3xl md:text-5xl font-bold break-all">
+            <p className="text-center text-4xl text-lavendar">Email us at:</p>
+            <p className="text-center text-3xl md:text-5xl font-bold break-all text-lavendar">
               cybersec.club@ucalgary.ca
             </p>
           </div>
           <div className="w-2/3 mx-auto my-4">
-            <p className="text-center text-4xl">Find us on Discord</p>
+            <p className="text-center text-4xl text-lavendar">Find us on Discord </p>
             <a href="https://discord.gg/dRTqKPatTv" target="_blank">
               <img className="mx-auto w-[40%]" src={DiscordLogo} />
             </a>
           </div>
           <div className="w-2/3 mx-auto my-4">
-            <p className="text-center text-4xl">Subscribe on Youtube</p>
+            <p className="text-center text-4xl text-lavendar">Subscribe on Youtube</p>
             <a
               href="https://www.youtube.com/channel/UCiDL68PDJUyX-CvoP6FHVcw"
               target="_blank"
@@ -81,7 +81,7 @@ function Home() {
             </a>
           </div>
           <div className="w-2/3 mx-auto my-4">
-            <p className="text-center text-4xl my-6">Check Out Our CTF</p>
+            <p className="text-center text-4xl my-6 text-lavendar">Check Out Our CTF</p>
             <a href="http://magpiectf.ca" target="_blank">
               <img
                 className="mx-auto w-[40%] rounded-3xl"

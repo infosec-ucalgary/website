@@ -18,7 +18,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="flex items-center justify-center flex-wrap bg-dystopian-blue">
+    <nav className="flex items-center justify-center flex-wrap bg-dark-gray">
       <div className="flex items-center justify-between flex-wrap p-2">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <Link to="/">
