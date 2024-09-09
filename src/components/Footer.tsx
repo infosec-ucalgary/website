@@ -8,7 +8,7 @@ function Footer() {
                     We are a group of students from the University of Calgary dedicated to learning cyber security.
                 </p>
                 <p className="mb-4">
-                    &copy; 2021 - Present UofC CyberSecurity Club. All rights reserved.
+                    &copy; 2019 - Present UCalgary CyberSecurity Club. All rights reserved.
                 </p>
                 <div className="flex justify-center space-x-4 mb-4">
                     <a href="https://discord.com/invite/dRTqKPatTv" target="_blank" rel="noopener noreferrer">

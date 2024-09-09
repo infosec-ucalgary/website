@@ -19,7 +19,7 @@ function Navbar() {
 
   return (
       <nav className="flex items-center justify-between bg-gradient-to-r from-like-lavendar to-electric-plum p-2">
-        <div className="flex items-center flex-shrink-0 text-lavendar mr-6">
+        <div className="flex items-center flex-shrink-0 ml-4 text-lavendar mr-6">
           <Link to="/">
             <img className="h-12 w-12 mr-2" src={Logo} />
           </Link>
