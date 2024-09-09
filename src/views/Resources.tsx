@@ -1,5 +1,11 @@
+
 function Resources() {
-  return <div>Under Construction</div>;
+    return (
+        <div>
+            Under Construction
+        </div>
+
+    )
 }
 
 export default Resources;

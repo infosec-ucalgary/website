@@ -16,12 +16,13 @@ import Speakers from "./views/Speakers";
 import Calendar from "./views/Calendar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import About from "./views/About.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      <Route path="/about" element={<Home />} />
+      <Route path="/about" element={<About />} />
       <Route path="/calendar" element={<Calendar />} />
       <Route path="/speakers" element={<Speakers />} />
       <Route path="/resources" element={<Resources />} />
