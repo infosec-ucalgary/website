@@ -35,7 +35,7 @@ function Footer() {
             <FaInstagram className="text-2xl hover:text-white" />
           </a>
           <a
-            href="mailto:infosec.ucalgary@gmail.com"
+            href="mailto:cybersec.club@ucalgary.ca"
             target="_blank"
             rel="noopener noreferrer"
           >
