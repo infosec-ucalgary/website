@@ -1,4 +1,6 @@
- export const resources = [
+ // If you want to add a new resource, add a new object to the resources array.
+
+export const resources = [
     { category: 'Tools', title: 'Pwntools', link: 'https://github.com/Gallopsled/pwntools', description: 'A set of tools used extensively for CTFs.' },
     { category: 'Tools', title: 'Cutter', link: 'https://github.com/radareorg/cutter', description: 'A GUI overlay for radare2, excellent for reverse engineering.' },
     { category: 'Tools', title: 'Ghidra', link: 'https://ghidra-sre.org/', description: 'A reverse engineering tool developed by the NSA.' },
