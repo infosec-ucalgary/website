@@ -30,7 +30,7 @@ function Speakers() {
           Join our speaker series and learn information security topics from
           real-world industry professionals.
         </h3>
-        <hr className="mt-6 border-2 border-neutral-gray rounded-lg" />
+        <hr className="mt-6 border-2 border-electric-plum rounded-lg" />
       </div>
       {allImagesLoaded ? (
         <div className="flex justify-start lg:justify-center lg:ml-0 m-4">
