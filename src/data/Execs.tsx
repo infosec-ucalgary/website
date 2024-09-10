@@ -1,5 +1,3 @@
-// if you want to add, remove or edit an executive, change the execs array below.
-
 export const execs = [
   {
     id: 1,
