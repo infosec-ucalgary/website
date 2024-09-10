@@ -29,6 +29,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ category, title, link, desc
             target="_blank"
             rel="noopener noreferrer"
             ref={cardRef}
+            data-aos="fade-up"
         >
             <h3 className="text-lg font-bold mb-2 text-lavendar">{title}</h3>
             <p className="text-sm text-like-lavendar mb-2">{category}</p>
