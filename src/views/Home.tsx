@@ -1,13 +1,13 @@
 import { ReactTyped } from "react-typed";
-import Logo from "@/images/logo.svg";
+import Logo from "@/images/logo_alt.svg";
 
 function Home() {
   return (
     <section className="text-lavendar">
       <header className="text-center py-12">
-        <img className="max-h-[300px] mx-auto" src={Logo} alt="Logo" />
-        <p className="text-4xl md:text-5xl font-bold mt-4">
-          UofC CyberSecurity Club
+        <img className="max-h-[450px] mx-auto" src={Logo} alt="Logo" />
+        <p className="text-4xl md:text-5xl font-bold -mt-12">
+          UCalgary CyberSecurity Club
         </p>
         <svg
           className="animate-bounce w-16 h-16 mx-auto mt-12"
@@ -73,4 +73,3 @@ function Home() {
 }
 
 export default Home;
-
