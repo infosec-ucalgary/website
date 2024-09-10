@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
+import { execs } from "../data/Execs";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { execs } from "../data/Execs";
 
 function About() {
   const [loadedImages, setLoadedImages] = useState<number[]>([]);
