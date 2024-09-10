@@ -7,24 +7,22 @@ export const execs = [
     headshot: "src/images/headshots/fam-headshot.jpg",
     card: "src/images/cards/ec_President.png",
   },
-
   {
     id: 2,
+    firstName: "Jason",
+    lastName: "Ngu",
+    position: "VP Communications",
+    headshot: "src/images/headshots/jason-headshot.jpg",
+    card: "src/images/cards/ec_VPJason.png",
+  },
+  {
+    id: 3,
     firstName: "Sean",
     lastName: "Robertson",
     position: "Secretary",
     headshot: "src/images/headshots/sean-headshot.jpg",
     card: "src/images/cards/execCards_-_Secretary.png",
   },
-  {
-    id: 3,
-    firstName: "Jason",
-    lastName: "Ngu",
-    position: "VP Communications",
-    headshot: "src/images/headshots/jason-headshot.jpg",
-    card: "src/images/cards/ec_VPComms.png",
-  },
-
   {
     id: 4,
     firstName: "Nicholas",
