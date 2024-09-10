@@ -1,11 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { execs } from "../data/Execs";
 
 function About() {
   const [loadedImages, setLoadedImages] = useState<number[]>([]);
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
 
   useEffect(() => {
     const imagePromises = execs.map((exec, index) => {
@@ -53,6 +59,7 @@ function About() {
                       key={exec.id}
                       className="max-w-sm m-4 shiny-card"
                       ref={(el) => (cardRefs.current[index] = el)}
+                      data-aos="flip-left"
                   >
                     <img
                         className={`w-full h-auto object-cover rounded-lg border-2 border-lavendar fade-in ${loadedImages.includes(index) ? "loaded" : ""}`}
