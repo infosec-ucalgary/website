@@ -1,4 +1,4 @@
-import goob from "../assets/constructionGoob.png"
+import goob from "../images/constructionGoob.png"
 
 function NotFound() {
     return (
