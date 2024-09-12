@@ -17,10 +17,10 @@
   width: 200%;
   height: 200%;
   background: linear-gradient(
-          120deg,
-          rgba(255, 255, 255, 0.1) 0%,
-          rgba(255, 255, 255, 0.2) 50%,
-          rgba(255, 255, 255, 0.1) 100%
+    120deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 100%
   );
   transform: rotate(30deg);
   transition: transform 0.5s ease-in-out;
@@ -37,24 +37,23 @@
   opacity: 1;
 }
 
-
 ::-webkit-scrollbar {
-  width: 0.5vw; 
+  width: 0.5vw;
 }
 
 ::-webkit-scrollbar-track {
-  background: whitesmoke; 
-  opacity: 0.2; 
+  background: whitesmoke;
+  opacity: 0.2;
   border-radius: 3rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888; 
-  border-radius: 3rem; 
+  background: #888;
+  border-radius: 3rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 
 .spinner {
@@ -68,6 +67,21 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.diagonal-lines {
+  background-image: repeating-linear-gradient(
+    135deg,
+    #020202 0,
+    #020202 2px,
+    transparent 2px,
+    transparent 50%
+  );
+  background-size: 25px 25px;
 }
