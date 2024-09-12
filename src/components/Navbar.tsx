@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import Logo from "@/images/logo.svg";
+import CYBERSEC from "@/images/wordmark.png"
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -19,9 +20,10 @@ function Navbar() {
 
   return (
     <nav className="flex items-center justify-between bg-gradient-to-r from-like-lavendar to-electric-plum p-2">
-      <div className="flex items-center flex-shrink-0 text-lavendar mr-6">
-        <Link to="/">
+      <div className="flex items-center flex-shrink-0 text-lavendar mr-6 ml-3">
+        <Link to="/" className="flex items-center">
           <img className="h-12 w-12 mr-2" src={Logo} />
+          <img className="h-8 hidden navbarCustom:block" src={CYBERSEC} />
         </Link>
       </div>
       <div className="block lg:hidden">

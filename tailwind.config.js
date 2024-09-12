@@ -22,6 +22,9 @@ export default {
       backgroundImage: {
         "site-background": "url('./src/images/background.png')",
       },
+      screens: {
+        'navbarCustom': '1100px',
+      },
     },
   },
   plugins: [],
