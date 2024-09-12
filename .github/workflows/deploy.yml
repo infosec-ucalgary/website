@@ -22,4 +22,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: 22
-          script: ./bin/update-cybersec-app.sh
+          script: /home/admin/bin/update-cybersec-app.sh
