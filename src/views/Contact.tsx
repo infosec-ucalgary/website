@@ -1,13 +1,4 @@
-import QR from "../images/discordQR.png"
-import { useState, useEffect } from 'react';
-
-const ContactForm = () => {
-  const [showQR, setShowQR] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => setShowQR(true), 400);
-  }, []);
-
+function ContactForm(){
   return (
     <div className="flex flex-col items-center justify-center my-12">
       <div className="w-full max-w-4xl bg-like-lavendar text-white bg-opacity-30 rounded-lg p-8 flex flex-col md:flex-row">
@@ -47,11 +38,6 @@ const ContactForm = () => {
               Send Us A Message
             </button>
           </form>
-        </div>
-
-        <div className={`flex-shrink-0 w-full md:w-1/3 flex flex-col items-center justify-center text-center transition-opacity duration-1000 ${showQR ? 'opacity-100' : 'opacity-0'}`}>
-          <p className="mb-4 text-2xl">Join our Discord!</p>
-          <img src={QR} alt="QR Code" className="w-auto h-auto rounded-md" />
         </div>
       </div>
     </div>
