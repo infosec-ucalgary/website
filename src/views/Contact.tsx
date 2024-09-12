@@ -48,11 +48,6 @@ const ContactForm = () => {
             </button>
           </form>
         </div>
-
-        <div className={`flex-shrink-0 w-full md:w-1/3 flex flex-col items-center justify-center text-center transition-opacity duration-1000 ${showQR ? 'opacity-100' : 'opacity-0'}`}>
-          <p className="mb-4 text-2xl">Join our Discord!</p>
-          <img src={QR} alt="QR Code" className="w-auto h-auto rounded-md" />
-        </div>
       </div>
     </div>
   );
