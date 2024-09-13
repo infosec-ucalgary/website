@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import Logo from "@/images/logo.svg";
-import CYBERSEC from "@/images/wordmark.png"
+import Logo from "/images/logo.svg";
+import CYBERSEC from "/images/wordmark.png";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
