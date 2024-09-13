@@ -1,6 +1,6 @@
 import { ReactTyped } from "react-typed";
 import Logo from "/images/logo_alt.svg";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -8,6 +8,11 @@ function Home() {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
+  const infoRef = useRef<HTMLDivElement | null>(null);
+  const handleScroll = () => {
+    if (infoRef.current) infoRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section className="text-lavendar">
@@ -17,7 +22,8 @@ function Home() {
           UCalgary CyberSecurity Club
         </p>
         <svg
-          className="animate-bounce w-16 h-16 mx-auto mt-12"
+          className="animate-bounce w-16 h-16 mx-auto mt-12 cursor-pointer"
+          onClick={handleScroll}
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -28,7 +34,7 @@ function Home() {
           <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
         </svg>
       </header>
-      <div className="flex flex-col items-center py-20">
+      <div ref={infoRef} className="flex flex-col items-center py-20">
         <section
           className="w-full bg-like-lavendar py-12 text-lavendar bg-opacity-40"
           data-aos="slide-right"
@@ -86,4 +92,3 @@ function Home() {
 }
 
 export default Home;
-
