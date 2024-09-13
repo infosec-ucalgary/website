@@ -5,7 +5,7 @@ export const execs = [
     lastName: "Ghaly",
     position: "President",
     headshot: "/images/headshots/fam-headshot.jpg",
-    card: "/images/cards/ec_President.png",
+    card: "/images/cards/ec_President.webp",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const execs = [
     lastName: "Ngu",
     position: "VP Communications",
     headshot: "/images/headshots/jason-headshot.jpg",
-    card: "/images/cards/ec_VPJason.png",
+    card: "/images/cards/ec_VPJason.webp",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const execs = [
     lastName: "Robertson",
     position: "Secretary",
     headshot: "/images/headshots/sean-headshot.jpg",
-    card: "/images/cards/execCards_-_Secretary.png",
+    card: "/images/cards/execCards_-_Secretary.webp",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const execs = [
     lastName: "Mackinnon",
     position: "VP Tech",
     headshot: "/images/headshots/nick-headshot.jpg",
-    card: "/images/cards/execCards_-_VPTech_-_Nick.png",
+    card: "/images/cards/execCards_-_VPTech_-_Nick.webp",
   },
 
   {
@@ -38,7 +38,7 @@ export const execs = [
     lastName: "K.",
     position: "VP Tech",
     headshot: "/images/headshots/royce-headshot.png",
-    card: "/images/cards/ec_VPTech_Royce.png",
+    card: "/images/cards/ec_VPTech_Royce.webp",
   },
 
   {
@@ -47,7 +47,7 @@ export const execs = [
     lastName: "Kirsman",
     position: "VP Tech",
     headshot: "/images/headshots/dante-headshot.jpg",
-    card: "/images/cards/ec_VPTech_Dante.png",
+    card: "/images/cards/ec_VPTech_Dante.webp",
   },
 
   {
@@ -56,7 +56,7 @@ export const execs = [
     lastName: "He",
     position: "Director",
     headshot: "/images/headshots/christina-headshot.jpg",
-    card: "/images/cards/execCards_-_Director.png",
+    card: "/images/cards/execCards_-_Director.webp",
   },
 
   {
@@ -65,6 +65,6 @@ export const execs = [
     lastName: "Hashmi",
     position: "VP Operations",
     headshot: "null",
-    card: "/images/cards/ec_VPOps.png",
+    card: "/images/cards/ec_VPOps.webp",
   },
 ];
