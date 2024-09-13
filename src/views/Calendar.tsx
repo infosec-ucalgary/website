@@ -9,8 +9,8 @@ import {
   getYear,
 } from "date-fns";
 
-import ForwardIcon from "../images/icons/forward.svg";
-import BackIcon from "../images/icons/back.svg";
+import ForwardIcon from "/images/icons/forward.svg";
+import BackIcon from "/images/icons/back.svg";
 import CalendarCard from "../components/CalendarCard";
 
 function Calendar() {
