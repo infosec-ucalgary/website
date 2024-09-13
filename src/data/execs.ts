@@ -4,32 +4,32 @@ export const execs = [
     firstName: "Fam",
     lastName: "Ghaly",
     position: "President",
-    headshot: "src/images/headshots/fam-headshot.jpg",
-    card: "src/images/cards/ec_President.png",
+    headshot: "/images/headshots/fam-headshot.jpg",
+    card: "/images/cards/ec_President.png",
   },
   {
     id: 2,
     firstName: "Jason",
     lastName: "Ngu",
     position: "VP Communications",
-    headshot: "src/images/headshots/jason-headshot.jpg",
-    card: "src/images/cards/ec_VPJason.png",
+    headshot: "/images/headshots/jason-headshot.jpg",
+    card: "/images/cards/ec_VPJason.png",
   },
   {
     id: 3,
     firstName: "Sean",
     lastName: "Robertson",
     position: "Secretary",
-    headshot: "src/images/headshots/sean-headshot.jpg",
-    card: "src/images/cards/execCards_-_Secretary.png",
+    headshot: "/images/headshots/sean-headshot.jpg",
+    card: "/images/cards/execCards_-_Secretary.png",
   },
   {
     id: 4,
     firstName: "Nicholas",
     lastName: "Mackinnon",
     position: "VP Tech",
-    headshot: "src/images/headshots/nick-headshot.jpg",
-    card: "src/images/cards/execCards_-_VPTech_-_Nick.png",
+    headshot: "/images/headshots/nick-headshot.jpg",
+    card: "/images/cards/execCards_-_VPTech_-_Nick.png",
   },
 
   {
@@ -37,8 +37,8 @@ export const execs = [
     firstName: "Royce",
     lastName: "K.",
     position: "VP Tech",
-    headshot: "src/images/headshots/royce-headshot.png",
-    card: "src/images/cards/ec_VPTech_Royce.png",
+    headshot: "/images/headshots/royce-headshot.png",
+    card: "/images/cards/ec_VPTech_Royce.png",
   },
 
   {
@@ -46,8 +46,8 @@ export const execs = [
     firstName: "Dante",
     lastName: "Kirsman",
     position: "VP Tech",
-    headshot: "src/images/headshots/dante-headshot.jpg",
-    card: "src/images/cards/ec_VPTech_Dante.png",
+    headshot: "/images/headshots/dante-headshot.jpg",
+    card: "/images/cards/ec_VPTech_Dante.png",
   },
 
   {
@@ -55,8 +55,8 @@ export const execs = [
     firstName: "Christina",
     lastName: "He",
     position: "Director",
-    headshot: "src/images/headshots/christina-headshot.jpg",
-    card: "src/images/cards/execCards_-_Director.png",
+    headshot: "/images/headshots/christina-headshot.jpg",
+    card: "/images/cards/execCards_-_Director.png",
   },
 
   {
@@ -65,6 +65,6 @@ export const execs = [
     lastName: "Hashmi",
     position: "VP Operations",
     headshot: "null",
-    card: "src/images/cards/ec_VPOps.png",
+    card: "/images/cards/ec_VPOps.png",
   },
 ];

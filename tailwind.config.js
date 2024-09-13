@@ -19,8 +19,8 @@ export default {
         "dark-gray": "#444444",
         "dystopian-blue": "#1D1D8C",
       },
-      backgroundImage: {
-        "site-background": "url('./src/images/background.png')",
+      screens: {
+        navbarCustom: "1100px",
       },
     },
   },
