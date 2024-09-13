@@ -5,6 +5,7 @@ export const events = [
     type: "Workshop",
     date: "2024-09-16",
     time: "18:00",
+    location: "MS 325",
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const events = [
     type: "Other",
     date: "2024-09-16",
     time: "11:00",
+    location: "MH Courtyard",
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const events = [
     type: "Other",
     date: "2024-09-17",
     time: "11:00",
+    location: "MH Courtyard",
   },
   {
     id: 4,
@@ -26,5 +29,6 @@ export const events = [
     type: "Other",
     date: "2024-09-18",
     time: "11:00",
+    location: "MH Courtyard",
   },
 ];
