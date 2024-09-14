@@ -11,8 +11,8 @@ function Resources() {
 
     return (
         <section className="py-5 w-full">
-            <div className="container mx-auto">
-                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-x-1 gap-y-4">
+            <div className="container mx-auto flex justify-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 justify-items-center w-full">
                     {resources.map((resource, index) => (
                         <div key={index} data-aos="fade-up">
                             <ResourceCard

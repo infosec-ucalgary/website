@@ -45,12 +45,12 @@ function EventCard({ event }: EventCard) {
           <img
             src={getEventIcon(event)}
             className={`${getEventColour(event)} w-10 h-10 mr-2 p-2 bg-opacity-50 rounded-full`}
-          />
+           alt={"Event Icon"}/>
           <div className="flex flex-col">
             <div className="text-xl font-semibold text-lavendar">
               {event.title}
             </div>
-            <div className="text-xs opacity-70 text-neutral-gray">
+            <div className="text-xs opacity-70 text-like-lavendar">
               {new Date(event.date + "T00:00:00").toLocaleDateString("en-us", {
                 weekday: "short",
                 year: "numeric",

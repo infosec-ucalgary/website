@@ -12,7 +12,7 @@ import NotFound from "./views/NotFound";
 import Winners from "./views/Winners";
 import Resources from "./views/Resources";
 import Speakers from "./views/Speakers";
-import Calendar from "./views/Calendar";
+import Events from "./views/Events.tsx";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./views/About.tsx";
@@ -22,7 +22,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/calendar" element={<Calendar />} />
+      <Route path="/events" element={<Events />} />
       <Route path="/speakers" element={<Speakers />} />
       <Route path="/resources" element={<Resources />} />
       <Route path="/winners" element={<Winners />} />
