@@ -50,7 +50,7 @@ function EventCard({ event }: EventCard) {
             <div className="text-xl font-semibold text-lavendar">
               {event.title}
             </div>
-            <div className="text-xs opacity-70 text-neutral-gray">
+            <div className="text-xs opacity-70 text-like-lavendar">
               {new Date(event.date + "T00:00:00").toLocaleDateString("en-us", {
                 weekday: "short",
                 year: "numeric",
