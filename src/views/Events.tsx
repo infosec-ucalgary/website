@@ -1,7 +1,7 @@
 import { events } from "../data/events";
 import EventCard from "../components/EventCard";
 
-function Calendar() {
+function Events() {
   const parseDateTime = (event: any) => {
     const dateTimeString = `${event.date}T${event.time}`;
     return new Date(dateTimeString).getTime();
@@ -28,4 +28,4 @@ function Calendar() {
   );
 }
 
-export default Calendar;
+export default Events;

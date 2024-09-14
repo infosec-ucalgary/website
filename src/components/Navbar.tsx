@@ -11,7 +11,7 @@ function Navbar() {
   const navItems = [
     { name: "Home", to: "/" },
     { name: "About Us", to: "/about" },
-    { name: "Calendar", to: "/calendar" },
+    { name: "Events", to: "/events" },
     { name: "Speakers", to: "/speakers" },
     { name: "Resources", to: "/resources" },
     { name: "CTF Winners", to: "/winners" },
@@ -22,8 +22,8 @@ function Navbar() {
     <nav className="flex items-center justify-between bg-gradient-to-r from-like-lavendar to-electric-plum p-2">
       <div className="flex items-center flex-shrink-0 text-lavendar mr-6 ml-3">
         <Link to="/" className="flex items-center">
-          <img className="h-12 w-12 mr-2" src={Logo} />
-          <img className="h-8 hidden navbarCustom:block" src={CYBERSEC} />
+          <img className="h-12 w-12 mr-2" src={Logo}  alt={"logo"}/>
+          <img className="h-8 hidden navbarCustom:block" src={CYBERSEC}  alt={"cybersec logo"}/>
         </Link>
       </div>
       <div className="block lg:hidden">

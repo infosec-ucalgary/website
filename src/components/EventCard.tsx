@@ -45,7 +45,7 @@ function EventCard({ event }: EventCard) {
           <img
             src={getEventIcon(event)}
             className={`${getEventColour(event)} w-10 h-10 mr-2 p-2 bg-opacity-50 rounded-full`}
-          />
+           alt={"Event Icon"}/>
           <div className="flex flex-col">
             <div className="text-xl font-semibold text-lavendar">
               {event.title}
