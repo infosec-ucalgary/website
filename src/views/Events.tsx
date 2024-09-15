@@ -27,8 +27,6 @@ function Events() {
     fetchData();
   }, []);
 
-  if (!data) return <div>loading...</div>;
-
   return (
     <div>
       <div className="container mx-auto p-4">
@@ -36,13 +34,17 @@ function Events() {
           Upcoming Events
         </h1>
       </div>
-      <div className="flex flex-col items-center">
-        {data.map((event) => (
-          <div key={event.id} className="w-full sm:w-[460px]">
-            <EventCard event={event} />
-          </div>
-        ))}
-      </div>
+      {data ? (
+        <div className="flex flex-col items-center">
+          {data.map((event) => (
+            <div key={event.id} className="w-full sm:w-[460px]">
+              <EventCard event={event} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="spinner"></div>
+      )}
     </div>
   );
 }
