@@ -5,7 +5,6 @@ import OtherIcon from "/images/icons/other.svg";
 interface Event {
   id: number;
   name: string;
-  description: string;
   date: string;
   location: string;
   start_time: string;
@@ -60,7 +59,7 @@ function EventCard({ event }: EventCard) {
                 month: "short",
                 day: "numeric",
               })}
-              , {event.start_time}
+              , {event.start_time} - {event.end_time}
             </div>
           </div>
         </div>

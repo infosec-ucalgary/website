@@ -5,7 +5,6 @@ import axios from "axios";
 interface Event {
   id: number;
   name: string;
-  description: string;
   date: string;
   location: string;
   start_time: string;
