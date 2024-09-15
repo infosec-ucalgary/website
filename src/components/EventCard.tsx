@@ -2,14 +2,16 @@ import SpeakerIcon from "/images/icons/speaker.svg";
 import WorkshopIcon from "/images/icons/workshop.svg";
 import OtherIcon from "/images/icons/other.svg";
 
-type Event = {
+interface Event {
   id: number;
-  title: string;
-  type: string;
+  name: string;
+  description: string;
   date: string;
-  time: string;
   location: string;
-};
+  start_time: string;
+  end_time: string;
+  type: string;
+}
 
 interface EventCard {
   event: Event;
@@ -17,10 +19,10 @@ interface EventCard {
 
 function EventCard({ event }: EventCard) {
   const getEventColour = (event: Event) => {
-    switch (event.type) {
-      case "Workshop":
+    switch (event.type.toLowerCase()) {
+      case "workshop":
         return "bg-orange";
-      case "Speaker":
+      case "speaker":
         return "bg-dystopian-blue";
       default:
         return "bg-matrix-green";
@@ -28,10 +30,10 @@ function EventCard({ event }: EventCard) {
   };
 
   const getEventIcon = (event: Event) => {
-    switch (event.type) {
-      case "Workshop":
+    switch (event.type.toLowerCase()) {
+      case "workshop":
         return WorkshopIcon;
-      case "Speaker":
+      case "speaker":
         return SpeakerIcon;
       default:
         return OtherIcon;
@@ -45,10 +47,11 @@ function EventCard({ event }: EventCard) {
           <img
             src={getEventIcon(event)}
             className={`${getEventColour(event)} w-10 h-10 mr-2 p-2 bg-opacity-50 rounded-full`}
-           alt={"Event Icon"}/>
+            alt={"Event Icon"}
+          />
           <div className="flex flex-col">
             <div className="text-xl font-semibold text-lavendar">
-              {event.title}
+              {event.name}
             </div>
             <div className="text-xs opacity-70 text-like-lavendar">
               {new Date(event.date + "T00:00:00").toLocaleDateString("en-us", {
@@ -57,7 +60,7 @@ function EventCard({ event }: EventCard) {
                 month: "short",
                 day: "numeric",
               })}
-              , {event.time}
+              , {event.start_time}
             </div>
           </div>
         </div>
