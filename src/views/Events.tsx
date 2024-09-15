@@ -19,7 +19,7 @@ function Events() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/events");
+        const res = await axios.get("/api/events");
         setData(res.data);
       } catch (e) {}
     };
