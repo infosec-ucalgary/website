@@ -61,24 +61,26 @@ function Navbar() {
         </div>
       </div>
       <div
-        className={`w-full lg:hidden flex-grow lg:items-center lg:w-auto ${
-          isOpen ? "block" : "hidden"
+  className={`w-full lg:hidden flex-grow lg:items-center lg:w-auto transition-all duration-300 ease-in-out overflow-hidden ${
+    isOpen ? "max-h-[500px]" : "max-h-0"
+  }`}
+>
+  <div className="text-sm flex-col">
+    {navItems.map((item) => (
+      <Link
+        key={item.name}
+        className={`flex my-2 justify-center items-center lg:mt-0 text-white hover:text-black text-lg transition duration-[2500ms] ${
+          location.pathname === item.to ? "underline" : ""
         }`}
+        to={item.to}
+        onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="text-sm flex-col">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              className={`flex my-2 justify-center items-center lg:mt-0 text-white hover:text-black text-lg transition duration-300 ${
-                location.pathname === item.to ? "underline" : ""
-              }`}
-              to={item.to}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-      </div>
+        {item.name}
+      </Link>
+    ))}
+  </div>
+</div>
+
     </nav>
   );
 }
