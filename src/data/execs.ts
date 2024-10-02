@@ -106,6 +106,13 @@ export const execs = [
   },
   {
     id: 16,
+    firstName: "McVeigh",
+    lastName: "Ojeda",
+    position: "Junior Executive",
+    card: "/images/cards/EC2_E01-JR-McVeigh.webp",
+  },
+  {
+    id: 17,
     firstName: "TBA",
     lastName: "TBA",
     position: "TBA",
