@@ -29,8 +29,8 @@ const Slideshow: React.FC<SlideshowProps> = ({
 
   return (
     <div
-      className="relative overflow-hidden"
-      style={{ width, height }}  // Dynamically set width and height
+      className="relative overflow-hidden max-w-[100vw] max-h-[100vw]"
+      style={{ width, height }}
     >
       {images.map((image, index) => (
         <div
