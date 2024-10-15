@@ -1,7 +1,3 @@
-import { ReactTyped } from "react-typed";
-import Logo from "/images/logo_alt.svg";
-import { useEffect, useRef } from "react";
-import AOS from "aos";
 import "aos/dist/aos.css";
 import Slideshow from "../components/Slideshow";
 import { enfocom_images } from "../data/sponsors";
