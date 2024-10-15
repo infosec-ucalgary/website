@@ -42,12 +42,12 @@ const Slideshow: React.FC<SlideshowProps> = ({
           <img
             src={image}
             alt={`Slide ${index}`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-2xl"
           />
         </div>
       ))}
       
-      {/* Optional: Navigation Buttons */}
+
       <div className="absolute inset-0 flex justify-between items-center">
         <button
           className="text-white bg-like-lavendar bg-opacity-50 p-2 rounded"
