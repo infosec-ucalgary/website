@@ -16,6 +16,7 @@ import Events from "./views/Events.tsx";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./views/About.tsx";
+import Sponsors from "./views/Sponsors.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="/speakers" element={<Speakers />} />
       <Route path="/resources" element={<Resources />} />
       <Route path="/winners" element={<Winners />} />
+      <Route path="/sponsors" element={<Sponsors />} />
       {/* <Route path="/contact" element={<Contact />} /> */}
       <Route path="*" element={<NotFound />} />
     </Route>,
