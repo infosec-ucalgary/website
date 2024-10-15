@@ -8,7 +8,7 @@ import {
 
 import Home from "./views/Home";
 import NotFound from "./views/NotFound";
-// import Contact from "./views/Contact";
+import Contact from "./views/Contact";
 import Winners from "./views/Winners";
 import Resources from "./views/Resources";
 import Speakers from "./views/Speakers";
@@ -26,7 +26,7 @@ const router = createBrowserRouter(
       <Route path="/speakers" element={<Speakers />} />
       <Route path="/resources" element={<Resources />} />
       <Route path="/winners" element={<Winners />} />
-      {/* <Route path="/contact" element={<Contact />} /> */}
+      <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
     </Route>,
   ),
