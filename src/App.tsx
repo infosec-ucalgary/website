@@ -16,6 +16,7 @@ import Events from "./views/Events.tsx";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./views/About.tsx";
+import Sponsors from "./views/Sponsors.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
