@@ -26,6 +26,7 @@ const router = createBrowserRouter(
       <Route path="/events" element={<Events />} />
       <Route path="/speakers" element={<Speakers />} />
       <Route path="/resources" element={<Resources />} />
+      <Route path="/sponsors" element={<Sponsors />} />
       <Route path="/winners" element={<Winners />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
