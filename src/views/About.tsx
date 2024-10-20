@@ -65,7 +65,7 @@ function About() {
       {allImagesLoaded ? (
         <div>
           <h1 className="text-4xl font-bold text-center text-lavendar">
-            Executives
+            Senior Executives
           </h1>
           <div className="flex flex-wrap justify-center gap-4 p-4">
             {execs.map((exec, index) => (
