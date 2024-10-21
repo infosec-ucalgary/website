@@ -3,8 +3,8 @@ import VanillaTilt from "vanilla-tilt";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { execs } from "../data/execs";
-import { associatExecs } from "../data/associateExecs";
-import { juniorExecs } from "../data/juniorexecs";
+import { associatExecs as associateExecs } from "../data/associateExecs";
+import { juniorExecs } from "../data/juniorExecs";
 
 function About() {
   const [loadedImages, setLoadedImages] = useState<number[]>([]);
@@ -20,7 +20,7 @@ function About() {
   useEffect(() => {
     const imagePromises = [
       ...execs,
-      ...associatExecs,
+      ...associateExecs,
       ...juniorExecs,
     ].map((exec, index) => {
       return new Promise((resolve) => {
@@ -90,7 +90,7 @@ function About() {
             Associate Executives
           </h1>
           <div className="flex flex-wrap justify-center gap-4 p-4">
-            {associatExecs.map((exec, index) => (
+            {associateExecs.map((exec, index) => (
               <div
                 key={exec.id}
                 className="max-w-sm m-4 shiny-card"
@@ -124,7 +124,7 @@ function About() {
                 <img
                   className={`w-full h-auto object-cover rounded-lg border-2 border-lavendar fade-in ${
                     loadedImages.includes(
-                      index + execs.length + associatExecs.length
+                      index + execs.length + associateExecs.length
                     )
                       ? "loaded"
                       : ""
