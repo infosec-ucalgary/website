@@ -43,6 +43,13 @@ export const juniorExecs = [
       },
       {
         id: 7,
+        firstName: "Aleksandr",
+        lastName: "Aghajanov",
+        position: "Junior Executive",
+        card: "/images/cards/EC2_E-JR-Aleksandr.webp",
+      },
+      {
+        id: 8,
         firstName: "TBA",
         lastName: "TBA",
         position: "TBA",
