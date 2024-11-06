@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 interface DocCardProps {
     category: string;
     title: string;
-    link: string;
+    link: () => void;
     description: string;
 }
 
@@ -17,8 +17,8 @@ const DocCard: React.FC<DocCardProps> = ({
 
     return (
         <a
-            href={link}
-            className="relative block bg-like-lavendar bg-opacity-30 rounded-lg p-4 h-60 w-full overflow-hidden group"
+            onClick={link}
+            className="relative block bg-like-lavendar bg-opacity-30 rounded-lg p-4 h-60 w-full overflow-hidden group cursor-pointer"
             target="_blank"
             rel="noopener noreferrer"
             ref={cardRef}
