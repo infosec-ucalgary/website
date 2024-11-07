@@ -26,7 +26,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ markdownText }) => 
   }, [markdownText]);
 
   return (
-    <div className=' prose prose-invert'
+    <div className=' prose prose-invert max-w-full'
       dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
     />
   );

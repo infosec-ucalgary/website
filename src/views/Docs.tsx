@@ -5,10 +5,21 @@ import 'aos/dist/aos.css';
 import DocCard from '../components/DocCard';
 import MarkdownRenderer from '../components/MarkdownRender';
 
+interface DocFile {
+  title: string;
+  description: string;
+  category: string;
+  filename: string;
+}
+
 function Docs() {
-  const [docFiles, setDocFiles] = useState<string[]>([]);
-  const [dFile, setDFile] = useState<string>("");
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [docFiles, setDocFiles] = useState<DocFile[]>([]);
+  const [selectedDoc, setSelectedDoc] = useState<{
+    content: string;
+    metadata: DocFile | null;
+  }>({ content: "", metadata: null });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -17,91 +28,117 @@ function Docs() {
 
   const fetchDocFiles = async () => {
     try {
+      setLoading(true);
+      setError(null);
       const response = await axios.get('http://localhost:8000/docs');
-      console.log(response.data);
       setDocFiles(response.data);
     } catch (error) {
       console.error('Error fetching doc files:', error);
+      setError('Failed to load document list. Please try again later.');
+    } finally {
+      setLoading(false);
     }
   };
 
-  const fetchFile = async (file: string) => {
+  const fetchFile = async (doc: DocFile) => {
     try {
-      const response = await axios.get(`http://localhost:8000/docs/${encodeURIComponent(file)}`);
-      console.log(response.data);
-      setDFile(response.data);
+      setLoading(true);
+      setError(null);
+      const response = await axios.get(
+        `http://localhost:8000/docs/${encodeURIComponent(doc.filename)}`, 
+        { responseType: 'text' }
+      );
+      setSelectedDoc({
+        content: response.data,
+        metadata: doc
+      });
     } catch (error) {
       console.error('Error fetching doc file contents:', error);
-    }
-  };
-  
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      setSelectedFile(event.target.files[0]);
+      setError('Failed to load document content. Please try again later.');
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleFileUpload = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!selectedFile) {
-      alert('Please select a file to upload');
-      return;
-    }
-    
-    const formData = new FormData();
-    formData.append("file", selectedFile);
-
-    try {
-      await axios.post('http://localhost:8000/docs/upload', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      });
-      alert('File uploaded successfully');
-      fetchDocFiles();  // Refresh the document list
-      setSelectedFile(null); // Reset the file input
-    } catch (error) {
-      console.error('Error uploading file:', error);
-    }
+  const handleBack = () => {
+    setSelectedDoc({ content: "", metadata: null });
+    setError(null);
   };
 
-  const handleFileClick = (file : string) => {
-    fetchFile(file);
-  };
+  // Group documents by category
+  const groupedDocs = docFiles.reduce((acc: Record<string, DocFile[]>, doc) => {
+    const category = doc.category || 'Uncategorized';
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(doc);
+    return acc;
+  }, {});
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-like-lavendar"></div>
+      </div>
+    );
+  }
 
   return (
-    <section className="py-5 w-full">
-      <div className="container mx-auto px-4">
-        <div className="text-white text-center text-4xl font-extrabold">
-          Docs
-        </div>
-        <form onSubmit={handleFileUpload} className="mt-4">
-          <input 
-            type="file" 
-            onChange={handleFileChange} 
-            className="border border-gray-300 rounded p-2"
-          />
-          <button 
-            type="submit" 
-            className="ml-2 bg-blue-500 text-white rounded p-2"
+    <section className="py-5 w-full min-h-screen bg-gray-900">
+      <div className="px-4 max-w-7xl mx-auto">
+        <h1 className="text-white text-center text-4xl font-extrabold mb-8">
+          Documentation
+        </h1>
+
+        {error && (
+          <div className="bg-red-500 text-white p-4 rounded-md mb-6">
+            {error}
+          </div>
+        )}
+
+        {selectedDoc.content ? (
+          <div 
+            className="mt-8 bg-gray-800 p-6 rounded-lg text-white"
+            data-aos="fade-up"
           >
-            Upload
-          </button>
-        </form>
-        
-        {dFile ? (
-          <div className="mt-8 bg-gray-800 p-4 rounded text-white">
-            <MarkdownRenderer markdownText={dFile}  />
+            {selectedDoc.metadata && (
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold mb-2">{selectedDoc.metadata.title}</h2>
+                <p className="text-gray-400 mb-2">{selectedDoc.metadata.description}</p>
+                <span className="inline-block bg-like-lavendar text-black px-3 py-1 rounded-full text-sm">
+                  {selectedDoc.metadata.category}
+                </span>
+              </div>
+            )}
+            <div className="prose prose-invert max-w-none">
+              <MarkdownRenderer markdownText={selectedDoc.content} />
+            </div>
             <button
-              onClick={() => setDFile("")}
-              className=" mt-10 p-2 bg-like-lavendar rounded-md text-black"
+              onClick={handleBack}
+              className="mt-8 px-6 py-2 bg-like-lavendar rounded-md text-black hover:bg-opacity-90 transition-colors"
             >
-              Back
+              Back to Documents
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-            {docFiles.map((file, index) => (
-              <DocCard key={index} title={file} description="test" category="test" link={() => handleFileClick(file)} />
+          <div className="space-y-8">
+            {Object.entries(groupedDocs).map(([category, docs]) => (
+              <div key={category} data-aos="fade-up">
+                <h2 className="text-white text-2xl font-bold mb-4 pl-2">
+                  {category}
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {docs.map((doc, index) => (
+                    <DocCard
+                      key={`${doc.filename}-${index}`}
+                      title={doc.title}
+                      description={doc.description}
+                      category={doc.category}
+                      link={() => fetchFile(doc)}
+                    />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         )}

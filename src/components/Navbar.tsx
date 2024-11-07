@@ -11,7 +11,7 @@ function Navbar() {
   const navItems = [
     { name: "Home", to: "/" },
     { name: "About Us", to: "/about" },
-    { name: "Events", to: "/events" },
+    // { name: "Events", to: "/events" },
     { name: "Speakers", to: "/speakers" },
     { name: "Resources", to: "/resources" },
     { name: "Docs", to: "/docs" },

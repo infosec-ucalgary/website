@@ -18,19 +18,23 @@ import Footer from "./components/Footer";
 import About from "./views/About.tsx";
 import Sponsors from "./views/Sponsors.tsx";
 import Docs from "./views/Docs.tsx"
+import DocsEditPage from "./views/DocsEdit.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/events" element={<Events />} />
+      {/* <Route path="/events" element={<Events />} /> */}
       <Route path="/speakers" element={<Speakers />} />
       <Route path="/resources" element={<Resources />} />
       <Route path="/sponsors" element={<Sponsors />} />
       <Route path="/winners" element={<Winners />} />
       <Route path="/docs" element={<Docs />} />
       <Route path="/contact" element={<Contact />} />
+
+      <Route path="/docs/edit" element={ <DocsEditPage/>}/>
+
       <Route path="*" element={<NotFound />} />
     </Route>,
   ),
