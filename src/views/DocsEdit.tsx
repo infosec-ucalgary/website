@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import CryptoJS from 'crypto-js';
 import DeleteConfirmationModal from '../components/DeleteConfirmation';
 
 export interface DocFile {
@@ -43,12 +42,11 @@ function DocsEditPage() {
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const hashedPassword = CryptoJS.SHA256(password).toString();
   
     try {
       const response = await axios.post('http://localhost:8000/login', { 
         username, 
-        password: hashedPassword 
+        password: password 
       });
       if (response.status === 200) {
         setIsLoggedIn(true);
