@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "tsc -b && vite build",
+    "dev": "NODE_ENV=dev vite dev",
+    "build": "NODE_ENV=production tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
