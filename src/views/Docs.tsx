@@ -4,13 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import DocCard from "../components/DocCard";
 import MarkdownRenderer from "../components/MarkdownRender";
-
-interface DocFile {
-  title: string;
-  description: string;
-  category: string;
-  filename: string;
-}
+import { DocFile } from "./DocsEdit";
 
 const api =
   process.env.NODE_ENV === "production" ? "/api" : "http://localhost:8000";
@@ -109,6 +103,9 @@ function Docs() {
                 <h2 className="text-2xl font-bold mb-2">
                   {selectedDoc.metadata.title}
                 </h2>
+                <strong>
+                  {selectedDoc.metadata.author}
+                </strong>
                 <p className="text-gray-400 mb-2">
                   {selectedDoc.metadata.description}
                 </p>
@@ -139,6 +136,7 @@ function Docs() {
                     <DocCard
                       key={`${doc.filename}-${index}`}
                       title={doc.title}
+                      author={doc.author}
                       description={doc.description}
                       category={doc.category}
                       link={() => fetchFile(doc)}

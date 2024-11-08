@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 interface DocCardProps {
     category: string;
     title: string;
+    author: string;
     link: () => void;
     description: string;
 }
@@ -10,6 +11,7 @@ interface DocCardProps {
 const DocCard: React.FC<DocCardProps> = ({
     category,
     title,
+    author,
     link,
     description,
 }) => {
@@ -27,6 +29,9 @@ const DocCard: React.FC<DocCardProps> = ({
             <h2 className="text-lg font-bold mb-2 text-lavendar">{title}</h2>
             <div className="absolute top-6 right-8">
                 <p className="text-sm text-like-lavendar font-bold">{category}</p>
+            </div>
+            <div className=" absolute bottom-6 right-8">
+                <p className="text-sm text-gray-300 font-bold">By {author}</p>
             </div>
             <p className="text-lg mb-4 text-lavendar">{description}</p>
 
