@@ -33,7 +33,7 @@ function DocsEditPage() {
 
   const fetchDocFiles = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/docs');
+      const response = await axios.get('/api/docs');
       setDocFiles(response.data);
     } catch (error) {
       console.error('Error fetching doc files:', error);
@@ -44,7 +44,7 @@ function DocsEditPage() {
     e.preventDefault();
   
     try {
-      const response = await axios.post('http://localhost:8000/login', { 
+      const response = await axios.post('/api/login', { 
         username, 
         password: password 
       });
@@ -90,7 +90,7 @@ function DocsEditPage() {
     formData.append("description", description);
 
     try {
-      await axios.post('http://localhost:8000/docs/upload', formData, {
+      await axios.post('/api/docs/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       alert('File uploaded successfully');
@@ -149,7 +149,7 @@ function DocsEditPage() {
         formData.append("description", description);
 
         try {
-          await axios.post('http://localhost:8000/docs/upload', formData, {
+          await axios.post('/api/docs/upload', formData, {
             headers: { 'Content-Type': 'multipart/form-data' }
           });
           alert('File uploaded successfully with new name');
@@ -222,7 +222,7 @@ function DocsEditPage() {
     if (!deleteInfo) return;
     
     try {
-      const response = await axios.post('http://localhost:8000/docs/delete', {
+      const response = await axios.post('/api/docs/delete', {
         title: deleteInfo.title,
         category: deleteInfo.category,
         description: deleteInfo.description

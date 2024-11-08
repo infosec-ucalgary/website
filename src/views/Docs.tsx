@@ -30,7 +30,7 @@ function Docs() {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get('http://localhost:8000/docs');
+      const response = await axios.get('/api/docs');
       setDocFiles(response.data);
     } catch (error) {
       console.error('Error fetching doc files:', error);
@@ -45,7 +45,7 @@ function Docs() {
       setLoading(true);
       setError(null);
       const response = await axios.get(
-        `http://localhost:8000/docs/${encodeURIComponent(doc.filename)}`, 
+        `/api/docs/${encodeURIComponent(doc.filename)}`, 
         { responseType: 'text' }
       );
       setSelectedDoc({
