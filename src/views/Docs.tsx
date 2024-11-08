@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import DocCard from '../components/DocCard';
-import MarkdownRenderer from '../components/MarkdownRender';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import DocCard from "../components/DocCard";
+import MarkdownRenderer from "../components/MarkdownRender";
 
 interface DocFile {
   title: string;
@@ -12,8 +12,8 @@ interface DocFile {
   filename: string;
 }
 
-const api = "/api";
-// const api = "http://localhost:8000";
+// const api = "/api";
+const api = "http://localhost:8000";
 
 function Docs() {
   const [docFiles, setDocFiles] = useState<DocFile[]>([]);
@@ -36,8 +36,8 @@ function Docs() {
       const response = await axios.get(`${api}/docs`);
       setDocFiles(response.data);
     } catch (error) {
-      console.error('Error fetching doc files:', error);
-      setError('Failed to load document list. Please try again later.');
+      console.error("Error fetching doc files:", error);
+      setError("Failed to load document list. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -48,16 +48,16 @@ function Docs() {
       setLoading(true);
       setError(null);
       const response = await axios.get(
-        `${api}/docs/${encodeURIComponent(doc.filename)}`, 
-        { responseType: 'text' }
+        `${api}/docs/${encodeURIComponent(doc.filename)}`,
+        { responseType: "text" },
       );
       setSelectedDoc({
         content: response.data,
-        metadata: doc
+        metadata: doc,
       });
     } catch (error) {
-      console.error('Error fetching doc file contents:', error);
-      setError('Failed to load document content. Please try again later.');
+      console.error("Error fetching doc file contents:", error);
+      setError("Failed to load document content. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -70,7 +70,7 @@ function Docs() {
 
   // Group documents by category
   const groupedDocs = docFiles.reduce((acc: Record<string, DocFile[]>, doc) => {
-    const category = doc.category || 'Uncategorized';
+    const category = doc.category || "Uncategorized";
     if (!acc[category]) {
       acc[category] = [];
     }
@@ -100,14 +100,18 @@ function Docs() {
         )}
 
         {selectedDoc.content ? (
-          <div 
+          <div
             className="mt-8 bg-gray-800 p-6 rounded-lg text-white"
             data-aos="fade-up"
           >
             {selectedDoc.metadata && (
               <div className="mb-6">
-                <h2 className="text-2xl font-bold mb-2">{selectedDoc.metadata.title}</h2>
-                <p className="text-gray-400 mb-2">{selectedDoc.metadata.description}</p>
+                <h2 className="text-2xl font-bold mb-2">
+                  {selectedDoc.metadata.title}
+                </h2>
+                <p className="text-gray-400 mb-2">
+                  {selectedDoc.metadata.description}
+                </p>
                 <span className="inline-block bg-like-lavendar text-black px-3 py-1 rounded-full text-sm">
                   {selectedDoc.metadata.category}
                 </span>
