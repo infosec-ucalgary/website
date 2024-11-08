@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import DeleteConfirmationModal from "../components/DeleteConfirmation";
 
-// const api = "/api";
-const api = "http://localhost:8000";
+const api =
+  process.env.NODE_ENV === "production" ? "/api" : "http://localhost:8000";
 
 export interface DocFile {
   title: string;

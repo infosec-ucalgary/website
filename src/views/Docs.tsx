@@ -12,8 +12,8 @@ interface DocFile {
   filename: string;
 }
 
-// const api = "/api";
-const api = "http://localhost:8000";
+const api =
+  process.env.NODE_ENV === "production" ? "/api" : "http://localhost:8000";
 
 function Docs() {
   const [docFiles, setDocFiles] = useState<DocFile[]>([]);
