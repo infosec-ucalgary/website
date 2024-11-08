@@ -12,6 +12,9 @@ interface DocFile {
   filename: string;
 }
 
+const api = "/api";
+// const api = "http://localhost:8000";
+
 function Docs() {
   const [docFiles, setDocFiles] = useState<DocFile[]>([]);
   const [selectedDoc, setSelectedDoc] = useState<{
@@ -30,7 +33,7 @@ function Docs() {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get('/api/docs');
+      const response = await axios.get(`${api}/docs`);
       setDocFiles(response.data);
     } catch (error) {
       console.error('Error fetching doc files:', error);
@@ -45,7 +48,7 @@ function Docs() {
       setLoading(true);
       setError(null);
       const response = await axios.get(
-        `/api/docs/${encodeURIComponent(doc.filename)}`, 
+        `${api}/docs/${encodeURIComponent(doc.filename)}`, 
         { responseType: 'text' }
       );
       setSelectedDoc({
