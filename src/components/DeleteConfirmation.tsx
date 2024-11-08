@@ -5,6 +5,7 @@ interface DeleteConfirmationModalProps {
   onClose: () => void;
   onConfirm: () => Promise<void>;
   title: string;
+  author: string;
   description: string;
   category: string;
 }
@@ -14,6 +15,7 @@ const DeleteConfirmationModal: React.FC<DeleteConfirmationModalProps> = ({
   onClose, 
   onConfirm, 
   title, 
+  author,
   description, 
   category 
 }) => {
@@ -40,6 +42,7 @@ const DeleteConfirmationModal: React.FC<DeleteConfirmationModalProps> = ({
         <div className="mb-4 text-gray-700">
           <p className="mb-2">You are about to delete:</p>
           <p><strong>Title:</strong> {title}</p>
+          <p><strong>Author:</strong> {author}</p>
           <p><strong>Category:</strong> {category}</p>
           <p><strong>Description:</strong> {description}</p>
         </div>

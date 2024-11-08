@@ -7,6 +7,7 @@ const api =
 
 export interface DocFile {
   title: string;
+  author: string;
   description: string;
   category: string;
   filename: string;
@@ -16,6 +17,7 @@ function DocsEditPage() {
   const [docFiles, setDocFiles] = useState<DocFile[]>([]);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [title, setTitle] = useState<string>("");
+  const [author, setAuthor] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,7 +34,7 @@ function DocsEditPage() {
   useEffect(() => {
     // Check file existence whenever title, category, or description changes
     checkFileExists();
-  }, [title, category, description]);
+  }, [title, author, category, description]);
 
   const fetchDocFiles = async () => {
     try {
@@ -79,11 +81,12 @@ function DocsEditPage() {
   };
 
   const checkFileExists = () => {
-    if (!title || !category || !description) return;
+    if (!title || !author || !category || !description) return;
 
     const existingFile = docFiles.find(
       (file) =>
         file.title === title &&
+        file.author === author &&
         file.category === category &&
         file.description === description,
     );
@@ -92,7 +95,7 @@ function DocsEditPage() {
 
   const handleFileUpload = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!selectedFile || !title || !category || !description) {
+    if (!selectedFile || !title || !author || !category || !description) {
       alert("Please fill in all fields and select a file.");
       return;
     }
@@ -100,6 +103,7 @@ function DocsEditPage() {
     const formData = new FormData();
     formData.append("file", selectedFile);
     formData.append("title", title);
+    formData.append("author", author);
     formData.append("category", category);
     formData.append("description", description);
 
@@ -112,6 +116,7 @@ function DocsEditPage() {
       // Reset form
       setSelectedFile(null);
       setTitle("");
+      setAuthor("");
       setCategory("");
       setDescription("");
       setFileExists(false);
@@ -139,7 +144,7 @@ function DocsEditPage() {
 
     if (fileExists) {
       const confirmOverwrite = window.confirm(
-        "A file with the same title, category, and description exists. Would you like to overwrite it?",
+        "A file with the same title, author, category, and description exists. Would you like to overwrite it?",
       );
 
       if (confirmOverwrite) {
@@ -163,6 +168,7 @@ function DocsEditPage() {
         const formData = new FormData();
         formData.append("file", renamedFile);
         formData.append("title", `${title} (${timestamp})`);
+        formData.append("author", author);
         formData.append("category", category);
         formData.append("description", description);
 
@@ -175,6 +181,7 @@ function DocsEditPage() {
           // Reset form
           setSelectedFile(null);
           setTitle("");
+          setAuthor("");
           setCategory("");
           setDescription("");
           setFileExists(false);
@@ -195,7 +202,7 @@ function DocsEditPage() {
     }
   };
 
-  const handleEdit = (title: string, description: string, category: string) => {
+  const handleEdit = (title: string, author: string, description: string, category: string) => {
     // First, scroll to the upload form
     const uploadForm = document.querySelector("#upload-form");
     if (uploadForm) {
@@ -204,7 +211,8 @@ function DocsEditPage() {
 
     // Set the form data
     setTitle(title);
-    setCategory(category.toUpperCase());
+    setAuthor(author);
+    setCategory(category);
     setDescription(description);
 
     // Check if file exists with these details
@@ -225,6 +233,7 @@ function DocsEditPage() {
 
   interface DeleteInfo {
     title: string;
+    author: string,
     description: string;
     category: string;
   }
@@ -236,10 +245,11 @@ function DocsEditPage() {
   // Update the delete handlers
   const handleDelete = (
     title: string,
+    author: string,
     description: string,
     category: string,
   ) => {
-    setDeleteInfo({ title, description, category });
+    setDeleteInfo({ title, author, description, category });
     setDeleteModalOpen(true);
   };
 
@@ -249,6 +259,7 @@ function DocsEditPage() {
     try {
       const response = await axios.post(`${api}/docs/delete`, {
         title: deleteInfo.title,
+        author: deleteInfo.author,
         category: deleteInfo.category,
         description: deleteInfo.description,
       });
@@ -313,6 +324,14 @@ function DocsEditPage() {
               />
               <input
                 type="text"
+                placeholder="Author"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
+                className="border border-gray-300 rounded p-2 w-full"
+                required
+              />
+              <input
+                type="text"
                 placeholder="Category"
                 value={category}
                 onChange={handleCategory}
@@ -347,6 +366,8 @@ function DocsEditPage() {
                   <li key={index} className="text-white">
                     <strong>Title:</strong> {file.title}
                     <br />
+                    <strong>Author:</strong> {file.author}
+                    <br />
                     <strong>Category:</strong> {file.category}
                     <br />
                     <strong>Description:</strong> {file.description}
@@ -355,7 +376,7 @@ function DocsEditPage() {
                     <button
                       className=" p-2 bg-green-700 hover:bg-green-800"
                       onClick={() =>
-                        handleEdit(file.title, file.description, file.category)
+                        handleEdit(file.title, file.author, file.description, file.category)
                       }
                     >
                       <svg
@@ -378,6 +399,7 @@ function DocsEditPage() {
                       onClick={() =>
                         handleDelete(
                           file.title,
+                          file.author,
                           file.description,
                           file.category,
                         )
@@ -415,6 +437,7 @@ function DocsEditPage() {
           }}
           onConfirm={handleConfirmDelete}
           title={deleteInfo.title}
+          author={deleteInfo.author}
           description={deleteInfo.description}
           category={deleteInfo.category}
         />
