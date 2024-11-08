@@ -12,7 +12,7 @@ import Contact from "./views/Contact";
 import Winners from "./views/Winners";
 import Resources from "./views/Resources";
 import Speakers from "./views/Speakers";
-import Events from "./views/Events.tsx";
+// import Events from "./views/Events.tsx";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./views/About.tsx";
