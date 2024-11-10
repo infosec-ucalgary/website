@@ -17,8 +17,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./views/About.tsx";
 import Sponsors from "./views/Sponsors.tsx";
-import Docs from "./views/Docs.tsx";
-import DocsEditPage from "./views/DocsEdit.tsx";
+// import Docs from "./views/Docs.tsx";
+// import DocsEditPage from "./views/DocsEdit.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
