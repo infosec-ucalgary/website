@@ -14,7 +14,7 @@ function Navbar() {
     // { name: "Events", to: "/events" },
     // { name: "Speakers", to: "/speakers" },
     { name: "Resources", to: "/resources" },
-    // { name: "Docs", to: "/docs" },
+    { name: "Writeups", to: "/writeups" },
     { name: "Courses", to: "/courses" },
     { name: "Sponsors", to: "/sponsors" },
     { name: "CTF Winners", to: "/winners" },

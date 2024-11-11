@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-interface DocCardProps {
+interface WriteupCardProps {
     category: string;
     title: string;
     author: string;
@@ -8,7 +8,7 @@ interface DocCardProps {
     description: string;
 }
 
-const DocCard: React.FC<DocCardProps> = ({
+const WriteupCard: React.FC<WriteupCardProps> = ({
     category,
     title,
     author,
@@ -41,5 +41,5 @@ const DocCard: React.FC<DocCardProps> = ({
     );
 };
 
-export default DocCard;
+export default WriteupCard;
 

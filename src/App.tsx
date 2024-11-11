@@ -18,8 +18,8 @@ import Footer from "./components/Footer";
 import About from "./views/About.tsx";
 import Sponsors from "./views/Sponsors.tsx";
 import Courses from "./views/Courses.tsx";
-// import Docs from "./views/Docs.tsx";
-// import DocsEditPage from "./views/DocsEdit.tsx";
+import Docs from "./views/Writeups.tsx";
+import DocsEditPage from "./views/WriteupsEdit.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,10 +32,10 @@ const router = createBrowserRouter(
       <Route path="/sponsors" element={<Sponsors />} />
       <Route path="/courses" element={<Courses />} />
       <Route path="/winners" element={<Winners />} />
-      {/* <Route path="/docs" element={<Docs />} /> */}
+      <Route path="/writeups" element={<Docs />} />
       <Route path="/contact" element={<Contact />} />
 
-      {/* <Route path="/docs/edit" element={<DocsEditPage />} /> */}
+      <Route path="/writeups/edit" element={<DocsEditPage />} />
 
       <Route path="*" element={<NotFound />} />
     </Route>,
