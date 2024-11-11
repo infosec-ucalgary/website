@@ -5,7 +5,7 @@ import DeleteConfirmationModal from "../components/DeleteConfirmation";
 const api =
   process.env.NODE_ENV === "production" ? "/api" : "http://localhost:8000";
 
-export interface DocFile {
+export interface WriteupFile {
   title: string;
   author: string;
   description: string;
@@ -13,8 +13,8 @@ export interface DocFile {
   filename: string;
 }
 
-function DocsEditPage() {
-  const [docFiles, setDocFiles] = useState<DocFile[]>([]);
+function WriteupsEditPage() {
+  const [writeupFiles, setWriteupFiles] = useState<WriteupFile[]>([]);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [title, setTitle] = useState<string>("");
   const [author, setAuthor] = useState<string>("");
@@ -24,10 +24,11 @@ function DocsEditPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [fileExists, setFileExists] = useState(false);
+  const [fileName, setFileName] = useState<string>("");
 
   useEffect(() => {
     if (isLoggedIn) {
-      fetchDocFiles();
+      fetchWriteupFiles();
     }
   }, [isLoggedIn]);
 
@@ -36,12 +37,12 @@ function DocsEditPage() {
     checkFileExists();
   }, [title, author, category, description]);
 
-  const fetchDocFiles = async () => {
+  const fetchWriteupFiles = async () => {
     try {
-      const response = await axios.get(`${api}/docs`);
-      setDocFiles(response.data);
+      const response = await axios.get(`${api}/writeups`);
+      setWriteupFiles(response.data);
     } catch (error) {
-      console.error("Error fetching doc files:", error);
+      console.error("Error fetching writeup files:", error);
     }
   };
 
@@ -66,7 +67,9 @@ function DocsEditPage() {
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
-      setSelectedFile(event.target.files[0]);
+      const file = event.target.files[0];
+      setSelectedFile(file);
+      setFileName(file.name);
     }
   };
 
@@ -83,7 +86,7 @@ function DocsEditPage() {
   const checkFileExists = () => {
     if (!title || !author || !category || !description) return;
 
-    const existingFile = docFiles.find(
+    const existingFile = writeupFiles.find(
       (file) =>
         file.title === title &&
         file.author === author &&
@@ -108,11 +111,11 @@ function DocsEditPage() {
     formData.append("description", description);
 
     try {
-      await axios.post(`${api}/docs/upload`, formData, {
+      await axios.post(`${api}/writeups/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("File uploaded successfully");
-      await fetchDocFiles();
+      await fetchWriteupFiles();
       // Reset form
       setSelectedFile(null);
       setTitle("");
@@ -128,7 +131,15 @@ function DocsEditPage() {
       if (fileInput) fileInput.value = "";
     } catch (error) {
       console.error("Error uploading file:", error);
-      alert("File upload failed");
+      // Check if the error is an Axios error and has a response
+      if (axios.isAxiosError(error) && error.response) {
+        // Extract and display the error message from the response
+        const errorMessage = error.response.data;
+        alert(`File upload failed: ${errorMessage}`);
+      } else {
+        // Handle other errors (e.g., network errors)
+        alert("File upload failed due to a network error.");
+      }
     }
   };
 
@@ -173,11 +184,11 @@ function DocsEditPage() {
         formData.append("description", description);
 
         try {
-          await axios.post(`${api}/docs/upload`, formData, {
+          await axios.post(`${api}/writeups/upload`, formData, {
             headers: { "Content-Type": "multipart/form-data" },
           });
           alert("File uploaded successfully with new name");
-          await fetchDocFiles();
+          await fetchWriteupFiles();
           // Reset form
           setSelectedFile(null);
           setTitle("");
@@ -257,7 +268,7 @@ function DocsEditPage() {
     if (!deleteInfo) return;
 
     try {
-      const response = await axios.post(`${api}/docs/delete`, {
+      const response = await axios.post(`${api}/writeups/delete`, {
         title: deleteInfo.title,
         author: deleteInfo.author,
         category: deleteInfo.category,
@@ -265,7 +276,7 @@ function DocsEditPage() {
       });
 
       if (response.status === 200) {
-        await fetchDocFiles();
+        await fetchWriteupFiles();
         alert("File deleted successfully");
       }
     } catch (error) {
@@ -352,6 +363,11 @@ function DocsEditPage() {
                 className="border border-gray-300 rounded p-2"
                 required
               />
+              {fileName && (
+                <div className="text-white mt-2">
+                  <strong>Selected File:</strong> {fileName}
+                </div>
+              )}
               <button
                 type="submit"
                 className="bg-blue-500 text-white rounded p-2 w-full"
@@ -362,7 +378,7 @@ function DocsEditPage() {
             <div className="mt-8">
               <h2 className="text-2xl font-bold">Uploaded Files</h2>
               <ul className="mt-4 list-disc pl-5">
-                {docFiles.map((file, index) => (
+                {writeupFiles.map((file, index) => (
                   <li key={index} className="text-white">
                     <strong>Title:</strong> {file.title}
                     <br />
@@ -446,4 +462,4 @@ function DocsEditPage() {
   );
 }
 
-export default DocsEditPage;
+export default WriteupsEditPage;

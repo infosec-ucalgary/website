@@ -2,33 +2,33 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import DocCard from "../components/DocCard";
+import WriteupCard from "../components/WriteupCard";
 import MarkdownRenderer from "../components/MarkdownRender";
-import { DocFile } from "./DocsEdit";
+import { WriteupFile } from "./WriteupsEdit";
 
 const api =
   process.env.NODE_ENV === "production" ? "/api" : "http://localhost:8000";
 
-function Docs() {
-  const [docFiles, setDocFiles] = useState<DocFile[]>([]);
-  const [selectedDoc, setSelectedDoc] = useState<{
+function Writeups() {
+  const [writeupFiles, setWriteFiles] = useState<WriteupFile[]>([]);
+  const [selectedWrite, setSelectedWrite] = useState<{
     content: string;
-    metadata: DocFile | null;
+    metadata: WriteupFile | null;
   }>({ content: "", metadata: null });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
-    fetchDocFiles();
+    fetchWriteupFiles();
   }, []);
 
-  const fetchDocFiles = async () => {
+  const fetchWriteupFiles = async () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get(`${api}/docs`);
-      setDocFiles(response.data);
+      const response = await axios.get(`${api}/writeups`);
+      setWriteFiles(response.data);
     } catch (error) {
       console.error("Error fetching doc files:", error);
       setError("Failed to load document list. Please try again later.");
@@ -37,15 +37,15 @@ function Docs() {
     }
   };
 
-  const fetchFile = async (doc: DocFile) => {
+  const fetchFile = async (doc: WriteupFile) => {
     try {
       setLoading(true);
       setError(null);
       const response = await axios.get(
-        `${api}/docs/${encodeURIComponent(doc.filename)}`,
+        `${api}/writeups/${encodeURIComponent(doc.filename)}`,
         { responseType: "text" },
       );
-      setSelectedDoc({
+      setSelectedWrite({
         content: response.data,
         metadata: doc,
       });
@@ -58,19 +58,22 @@ function Docs() {
   };
 
   const handleBack = () => {
-    setSelectedDoc({ content: "", metadata: null });
+    setSelectedWrite({ content: "", metadata: null });
     setError(null);
   };
 
   // Group documents by category
-  const groupedDocs = docFiles.reduce((acc: Record<string, DocFile[]>, doc) => {
-    const category = doc.category || "Uncategorized";
-    if (!acc[category]) {
-      acc[category] = [];
-    }
-    acc[category].push(doc);
-    return acc;
-  }, {});
+  const groupedWriteups = writeupFiles.reduce(
+    (acc: Record<string, WriteupFile[]>, doc) => {
+      const category = doc.category || "Uncategorized";
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+      acc[category].push(doc);
+      return acc;
+    },
+    {},
+  );
 
   if (loading) {
     return (
@@ -81,41 +84,35 @@ function Docs() {
   }
 
   return (
-    <section className="py-5 w-full min-h-screen bg-gray-900">
+    <section className="py-5 w-full min-h-screen">
       <div className="px-4 max-w-7xl mx-auto">
-        <h1 className="text-white text-center text-4xl font-extrabold mb-8">
-          Documentation
-        </h1>
-
         {error && (
           <div className="bg-red-500 text-white p-4 rounded-md mb-6">
             {error}
           </div>
         )}
 
-        {selectedDoc.content ? (
+        {selectedWrite.content ? (
           <div
             className="mt-8 bg-gray-800 p-6 rounded-lg text-white"
             data-aos="fade-up"
           >
-            {selectedDoc.metadata && (
+            {selectedWrite.metadata && (
               <div className="mb-6">
                 <h2 className="text-2xl font-bold mb-2">
-                  {selectedDoc.metadata.title}
+                  {selectedWrite.metadata.title}
                 </h2>
-                <strong>
-                  {selectedDoc.metadata.author}
-                </strong>
+                <strong>{selectedWrite.metadata.author}</strong>
                 <p className="text-gray-400 mb-2">
-                  {selectedDoc.metadata.description}
+                  {selectedWrite.metadata.description}
                 </p>
                 <span className="inline-block bg-like-lavendar text-black px-3 py-1 rounded-full text-sm">
-                  {selectedDoc.metadata.category}
+                  {selectedWrite.metadata.category}
                 </span>
               </div>
             )}
             <div className="prose prose-invert max-w-none">
-              <MarkdownRenderer markdownText={selectedDoc.content} />
+              <MarkdownRenderer markdownText={selectedWrite.content} />
             </div>
             <button
               onClick={handleBack}
@@ -126,20 +123,20 @@ function Docs() {
           </div>
         ) : (
           <div className="space-y-8">
-            {Object.entries(groupedDocs).map(([category, docs]) => (
+            {Object.entries(groupedWriteups).map(([category, writeups]) => (
               <div key={category} data-aos="fade-up">
                 <h2 className="text-white text-2xl font-bold mb-4 pl-2">
                   {category}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {docs.map((doc, index) => (
-                    <DocCard
-                      key={`${doc.filename}-${index}`}
-                      title={doc.title}
-                      author={doc.author}
-                      description={doc.description}
-                      category={doc.category}
-                      link={() => fetchFile(doc)}
+                  {writeups.map((writeup, index) => (
+                    <WriteupCard
+                      key={`${writeup.filename}-${index}`}
+                      title={writeup.title}
+                      author={writeup.author}
+                      description={writeup.description}
+                      category={writeup.category}
+                      link={() => fetchFile(writeup)}
                     />
                   ))}
                 </div>
@@ -152,4 +149,4 @@ function Docs() {
   );
 }
 
-export default Docs;
+export default Writeups;
