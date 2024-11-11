@@ -17,6 +17,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./views/About.tsx";
 import Sponsors from "./views/Sponsors.tsx";
+import Courses from "./views/Courses.tsx";
 // import Docs from "./views/Docs.tsx";
 // import DocsEditPage from "./views/DocsEdit.tsx";
 
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
       {/* <Route path="/speakers" element={<Speakers />} /> */}
       <Route path="/resources" element={<Resources />} />
       <Route path="/sponsors" element={<Sponsors />} />
+      <Route path="/courses" element={<Courses />} />
       <Route path="/winners" element={<Winners />} />
       {/* <Route path="/docs" element={<Docs />} /> */}
       <Route path="/contact" element={<Contact />} />
