@@ -63,14 +63,17 @@ function Writeups() {
   };
 
   // Group documents by category
-  const groupedWriteups = writeupFiles.reduce((acc: Record<string, WriteupFile[]>, doc) => {
-    const category = doc.category || "Uncategorized";
-    if (!acc[category]) {
-      acc[category] = [];
-    }
-    acc[category].push(doc);
-    return acc;
-  }, {});
+  const groupedWriteups = writeupFiles.reduce(
+    (acc: Record<string, WriteupFile[]>, doc) => {
+      const category = doc.category || "Uncategorized";
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+      acc[category].push(doc);
+      return acc;
+    },
+    {},
+  );
 
   if (loading) {
     return (
@@ -81,12 +84,8 @@ function Writeups() {
   }
 
   return (
-    <section className="py-5 w-full min-h-screen bg-gray-900">
+    <section className="py-5 w-full min-h-screen">
       <div className="px-4 max-w-7xl mx-auto">
-        <h1 className="text-white text-center text-4xl font-extrabold mb-8">
-          Writeups
-        </h1>
-
         {error && (
           <div className="bg-red-500 text-white p-4 rounded-md mb-6">
             {error}
@@ -103,9 +102,7 @@ function Writeups() {
                 <h2 className="text-2xl font-bold mb-2">
                   {selectedWrite.metadata.title}
                 </h2>
-                <strong>
-                  {selectedWrite.metadata.author}
-                </strong>
+                <strong>{selectedWrite.metadata.author}</strong>
                 <p className="text-gray-400 mb-2">
                   {selectedWrite.metadata.description}
                 </p>
