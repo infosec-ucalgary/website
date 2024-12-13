@@ -1,8 +1,15 @@
+import Slideshow from "../components/Slideshow";
+import { ccsa_images } from "../data/courses";
+
 function Courses() {
   return (
-    <div className="h-[75vh] flex items-center justify-center text-white text-8xl">
-      TO BE ANNOUNCED
-    </div>
+    <section className="text-lavendar">
+      <div className="flex flex-col items-center">
+        <div className=" mt-8">
+          <Slideshow images={ccsa_images} width="40rem" height="40rem" />
+        </div>
+      </div>
+    </section>
   );
 }
 
