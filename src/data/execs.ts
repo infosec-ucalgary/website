@@ -62,4 +62,12 @@ export const execs = [
     position: "Director",
     card: "/images/cards/EC2_B01-Director_Christina.webp",
   },
+
+  {
+    id: 10,
+    firstName: "Liam",
+    lastName: "Major",
+    position: "VP Academic",
+    card: "/images/cards/EC2_A09-VPAcademic_Liam.webp",
+  }
 ];

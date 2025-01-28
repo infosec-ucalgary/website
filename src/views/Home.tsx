@@ -42,26 +42,20 @@ function Home() {
           <p className="text-center text-4xl font-bold">Who We Are</p>
           <div className="w-5/6 md:w-2/3 xl:w-2/5 mx-auto py-12">
             <p className="text-center text-lg">
-              The mission of the Cyber Security Club is to expose and educate
-              university students to the technical and theoretical skills in the
-              field of cybersecurity, and to connect these students with
-              industry professionals.
+              Founded in 2019 as the Information Security Club, CYBERSEC is a
+              not-for-profit, student-run organization at the University of
+              Calgary focused on providing a platform and hub for students and
+              aspiring cybersecurity professionals to connect and collaborate.
+              Our organization strives to offer the best free lectures,
+              workshops, speaker series, fireside chats, challenge events and
+              networking events available in the ever-expanding realm of
+              cybersecurity. CYBERSEC is also home to the renowned magpieCTF, an
+              annual CTF event for all skill-levels with thousands of dollars in
+              prizes! Interested in joining? Simply join the Official CYBERSEC
+              Discord and go from there!
             </p>
           </div>
-        </section>
-        <section
-          className="w-full bg-dark-gray py-12 text-center text-lavendar bg-opacity-40 rounded"
-          data-aos="slide-left"
-        >
-          <p className="text-4xl font-bold mb-6">What We Do</p>
-          <div className="w-5/6 md:w-2/3 xl:w-2/5 mx-auto py-12">
-            <p className="text-center text-lg">
-              Our club organizes various activities including workshops, guest
-              lectures, and capture the flag (CTF) competitions to help students
-              develop their cybersecurity skills. We also provide cybersecurity
-              resources for students.
-            </p>
-          </div>
+         
           <div className="w-5/6 md:w-2/3 xl:w-2/5 mx-auto py-12 overflow-hidden">
             <div className="border-2 bg-gray-800 rounded-full py-2 px-4 text-xl">
               <span className="text-[#9289b8]">root@magpie ~$ </span>
@@ -86,6 +80,7 @@ function Home() {
             </div>
           </div>
         </section>
+       
       </div>
     </section>
   );
