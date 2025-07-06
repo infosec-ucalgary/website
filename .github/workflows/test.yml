@@ -1,0 +1,22 @@
+name: Remote Hello World Script
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  create-hello-world:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create hello-world.sh on DigitalOcean server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: |
+            echo '#!/bin/bash' > ~/hello-world.sh
+            echo 'echo "Hello, World!"' >> ~/hello-world.sh
+            chmod +x ~/hello-world.sh
