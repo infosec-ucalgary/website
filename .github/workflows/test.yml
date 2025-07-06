@@ -1,15 +1,15 @@
-name: Remote Hello World Script
+name: Add SSH Public Key
 
 on:
   push:
     branches: [main]
 
 jobs:
-  create-hello-world:
+  add-public-key:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Create hello-world.sh on DigitalOcean server
+      - name: Add public key to authorized_keys on server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -17,6 +17,9 @@ jobs:
           key: ${{ secrets.KEY }}
           port: 22
           script: |
-            echo '#!/bin/bash' > ~/hello-world.sh
-            echo 'echo "Hello, World!"' >> ~/hello-world.sh
-            chmod +x ~/hello-world.sh
+            mkdir -p ~/.ssh
+            echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAWO38gunWq2aTzV0qVKWGprL1Jmf36/mrfzoGZkaMKL mcveigth@Chappie" >> ~/.ssh/authorized_keys
+            chmod 700 ~/.ssh
+            chmod 600 ~/.ssh/authorized_keys
+            echo "Public key added successfully."
+            
