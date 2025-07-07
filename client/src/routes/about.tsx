@@ -1,3 +1,4 @@
+import ProfileCard from '@/components/profile-card'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/about')({
@@ -5,5 +6,16 @@ export const Route = createFileRoute('/about')({
 })
 
 function About() {
-  return <div className="p-2">Hello from About!</div>
+  return (
+    <div className='grid md:grid-cols-4 gap-8 p-8'>
+      <ProfileCard />
+      <ProfileCard />
+      <ProfileCard />
+      <ProfileCard />
+      <ProfileCard />
+      <ProfileCard />
+      <ProfileCard />
+      <ProfileCard />
+    </div>
+  )
 }
