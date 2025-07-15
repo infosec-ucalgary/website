@@ -1,35 +1,56 @@
+import {
+  MinimalCard,
+  MinimalCardDescription,
+  MinimalCardImage,
+  MinimalCardTitle,
+} from "@/components/ui/minimal-card"
 import { Badge } from "@/components/ui/badge"
-import headshot from "@/assets/headshots/random_headshot.webp"
+import cardBackground from "@/assets/card_background.png"
 
-export default function ProfileCard() {
+interface Props {
+  name: string
+  src: string
+  role: string
+  fact: string
+  hobbies: string[]
+}
+
+export default function ProfileCard({ name, src, role, fact, hobbies }: Props) {
   return (
-    <div className="w-96 rounded-2xl overflow-hidden shadow-lg border-4 border-white/80 bg-white">
-      <img
-        src={headshot}
-        alt="headshot"
-        className="w-full h-64 object-cover rounded-2xl"
+    <MinimalCard
+      className="m-2 w-full max-w-md pb-10"
+      style={{
+        backgroundImage: `url(${cardBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <MinimalCardImage
+        className="h-[320px]"
+        src={src}
+        alt={name}
       />
+      <MinimalCardTitle className="text-white">{name}</MinimalCardTitle>
+      <MinimalCardDescription>
+        {role}
+        <div>
+          <div className="mt-4">
+            <h3 className="text-sm text-white font-semibold">Hobbies:</h3>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {hobbies.map((hobby, index) => (
+                <Badge key={index} variant="secondary">{hobby}</Badge>
+              ))}
+            </div>
+          </div>
 
-      <div className="p-2 text-black">
-        <h3 className="text-xl font-bold">Jason "Duck Guy" Ngu</h3>
-        <p className="text-muted-foreground font-medium">President</p>
-
-        <div className="mt-4">
-          <h3 className="text-sm font-semibold">Hobbies:</h3>
-          <div className="mt-2 flex flex-wrap gap-2">
-            <Badge variant="secondary">Poetry</Badge>
-            <Badge variant="secondary">Biking</Badge>
-            <Badge variant="secondary">Polaroid + Fujifilm Photography</Badge>
+          <div className="mt-4">
+            <h3 className="text-sm text-white font-semibold">Random Fact:</h3>
+            <p className="text-sm text-muted-foreground w-3/4">
+              {fact}
+            </p>
           </div>
         </div>
-
-        <div className="mt-4">
-          <h3 className="text-sm font-semibold">Random Fact:</h3>
-          <p className="text-sm text-muted-foreground">
-            Is the UCalgary Duck Guy & a Certified Mental Health Ambassador
-          </p>
-        </div>
-      </div>
-    </div>
+      </MinimalCardDescription>
+    </MinimalCard>
   )
 }
