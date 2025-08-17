@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "NODE_ENV=dev vite dev",
+    "dev": "cross-env NODE_ENV=dev vite dev",
     "build": "NODE_ENV=production tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -33,6 +33,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "autoprefixer": "^10.4.20",
+    "cross-env": "^10.0.0",
     "eslint": "^9.11.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.12",
