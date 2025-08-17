@@ -15,7 +15,8 @@ import Resources from "./views/Resources";
 // import Events from "./views/Events.tsx";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import About from "./views/About.tsx";
+import About20242025 from "./views/About2024-2025.tsx";
+import About from "./views/About2025-2026.tsx";
 import Sponsors from "./views/Sponsors.tsx";
 import Courses from "./views/Courses.tsx";
 import Docs from "./views/Writeups.tsx";
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="/about" element={<About />} />
+      <Route path="/about2024-2025" element={<About20242025 />} />
       {/* <Route path="/events" element={<Events />} /> */}
       {/* <Route path="/speakers" element={<Speakers />} /> */}
       <Route path="/resources" element={<Resources />} />

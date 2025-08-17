@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { execs } from "../data/execs";
-import { associatExecs as associateExecs } from "../data/associateExecs";
-import { juniorExecs } from "../data/juniorExecs";
+import { execs } from "../data/2024-2025/execs";
+import { associateExecs } from "../data/2024-2025/associateExecs";
+import { juniorExecs } from "../data/2024-2025/juniorExecs";
 
 function About() {
   const [loadedImages, setLoadedImages] = useState<number[]>([]);
