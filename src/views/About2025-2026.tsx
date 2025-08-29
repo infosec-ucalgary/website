@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { execs } from "../data/2025-2026/execs";
 import { associateExecs } from "../data/2025-2026/associateExecs";
+import { specialists } from "../data/2025-2026/specialists"
 import { juniorExecs } from "../data/2025-2026/juniorExecs";
 
 function About() {
@@ -11,6 +12,7 @@ function About() {
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const execCardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const associateExecCardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const specialistCardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const juniorExecCardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -21,6 +23,7 @@ function About() {
     const imagePromises = [
       ...execs,
       ...associateExecs,
+      ...specialists,
       ...juniorExecs,
     ].map((exec, index) => {
       return new Promise((resolve) => {
@@ -55,6 +58,7 @@ function About() {
 
       initTilt(execCardRefs.current);
       initTilt(associateExecCardRefs.current);
+      initTilt(specialistCardRefs.current);
       initTilt(juniorExecCardRefs.current);
     }
   }, [allImagesLoaded]);
@@ -85,7 +89,7 @@ function About() {
               </div>
             ))}
           </div>
-
+          
           <h1 className="text-4xl font-bold text-center text-lavendar">
             Associate Executives
           </h1>
@@ -102,6 +106,28 @@ function About() {
                     loadedImages.includes(index + execs.length)
                       ? "loaded"
                       : ""
+                  }`}
+                  src={exec.card}
+                  alt={`${exec.firstName} ${exec.lastName}`}
+                />
+              </div>
+            ))}
+          </div>
+          
+          <h1 className="text-4xl font-bold text-center text-lavendar">
+            Specialists
+          </h1>
+          <div className="flex flex-wrap justify-center gap-4 p-4">
+            {specialists.map((exec, index) => (
+              <div
+                key={exec.id}
+                className="max-w-sm m-4 shiny-card"
+                ref={(el) => (specialistCardRefs.current[index] = el)}
+                data-aos="flip-left"
+              >
+                <img
+                  className={`w-full h-auto object-cover rounded-lg border-2 border-lavendar fade-in ${
+                    loadedImages.includes(index) ? "loaded" : ""
                   }`}
                   src={exec.card}
                   alt={`${exec.firstName} ${exec.lastName}`}

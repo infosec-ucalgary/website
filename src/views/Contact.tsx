@@ -25,8 +25,13 @@ function ContactForm() {
   return (
     <div className="flex flex-col items-center justify-center my-12">
       <div className="w-full max-w-4xl bg-like-lavendar text-white bg-opacity-30 rounded-lg p-8 flex flex-col md:flex-row">
-        <div className="flex-grow mb-6 md:mb-0 md:mr-6">
-          <h2 className="text-2xl font-bold mb-6">Email Us</h2>
+        <div className="flex flex-col gap-4 mb-6 md:mb-0 md:mr-6">
+          <div>
+            <h2 className="text-2xl font-bold mb-1">Contact Us</h2>
+            <p>
+              Are you a student interested in getting involved, joining our <a href="/about" className="text-cyan">executive team</a>, or simply learning more? <br/>Or whether you’re a professor, industry professional, or organization looking to collaborate, then we’d love to hear from you! Partnering with us supports the next generation of cybersecurity professionals, and together we can create opportunities, foster innovation, and build a stronger, more secure future. If you're interested in contacting us, then please email us by using this form and we will respond to you shortly. 
+            </p>
+          </div>
           <form onSubmit={sendEmail} className="space-y-6">
             <div>
               <label className="block mb-2" htmlFor="email">
