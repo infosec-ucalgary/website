@@ -29,7 +29,7 @@ function ContactForm() {
           <div>
             <h2 className="text-2xl font-bold mb-1">Contact Us</h2>
             <p>
-              Are you a student interested in getting involved, joining our <a href="/about" className="text-cyan">executive team</a>, or simply learning more? <br/>Or perhaps you’re a professor, industry professional, or organization looking to collaborate, we’d love to hear from you! Partnering us to supports the next generation of cybersecurity professionals, and together we can create opportunities, foster innovation, and build a stronger, more secure future. If you're interested in contacting us, then please email us using this form and we will respond to you shortly. 
+              Are you a student interested in getting involved, joining our <a href="/about" className="text-cyan">executive team</a>, or simply learning more? <br/>Or whether you’re a professor, industry professional, or organization looking to collaborate, then we’d love to hear from you! Partnering with us supports the next generation of cybersecurity professionals, and together we can create opportunities, foster innovation, and build a stronger, more secure future. If you're interested in contacting us, then please email us by using this form and we will respond to you shortly. 
             </p>
           </div>
           <form onSubmit={sendEmail} className="space-y-6">
