@@ -5,7 +5,23 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: "Exo 2", serif;
+  --font-sans: "Exo 2", ui-sans-serif, system-ui, sans-serif;
+
+  --color-magpie-lavender: #E6E6FA;
+  --color-lucky-gray: #888;
+  --color-gray: #444;
+  --color-like-lavender: #B2B4D5;
+  --color-orange: #F25F2E;
+  --color-matrix-green: #00FF24;
+  --color-operation-red: #F42535;
+  --color-electric-plum: #742E72;
+  --color-dystopian-blue: #1D1D8C;
+  --color-just-white: #FFF;
+  --color-just-black: #020202;
+  --color-cyan: #50CCDF;
+  --color-peach-pink: #FAE6E6;
+  --color-course-crimson: #AB1412;
+  --color-rouge: #BE2830;
 }
 
 @theme inline {

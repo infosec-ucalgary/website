@@ -7,17 +7,20 @@ export const Route = createFileRoute('/about')({
 
 function About() {
   return (
-    <div className="p-8">
+    <div className="w-full">
       {Object.entries(EXEC_CARDS).map(([role, execs], index) => (
-        <div key={index} className="mb-8">
-          <h1 className="text-3xl text-white font-bold mb-4 text-center">{role}</h1>
-          <div className="flex flex-wrap justify-center">
+        <div key={index} className="pb-12">
+          <h1 className="text-magpie-lavender text-4xl font-bold mb-8 text-center">
+            {role}
+          </h1>
+          <div className="flex flex-wrap justify-center gap-12">
             {execs.map((exec, i) => (
-              <div key={i} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-2 flex">
+              <div className="max-w-sm">
                 <img
+                  key={i}
                   src={exec.src}
                   alt={`Card for ${exec.firstName} ${exec.lastName}`}
-                  className="border-2 border-white rounded-xl"
+                  className="w-full h-auto object-cover border-2 border-magpie-lavender rounded-xl"
                 />
               </div>
             ))}
