@@ -14,6 +14,7 @@ function About() {
           key={index}
           name={card.name}
           role={card.role}
+          roleDetails={card.roleDetails}
           fact={card.fact}
           src={card.headshot}
           hobbies={card.hobbies}
