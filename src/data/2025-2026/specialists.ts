@@ -27,11 +27,4 @@ export const specialists =[
     position: "Operations Coordinator",
     card: "/images/cards2025-2026/EB2_C5_Operations_Coordinator (Alex 2nd).webp",
   },
-  {
-    id: 5,
-    firstName: "Yazeed",
-    lastName: "Badr",
-    position: "Operations Coordinator",
-    card: "/images/cards2025-2026/EB2_C6_Operations_Coordinator (Yazeed).webp",
-  },
 ]
