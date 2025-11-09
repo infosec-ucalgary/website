@@ -46,7 +46,7 @@ export const execs = [
     firstName: "Gabriel",
     lastName: "Moises",
     position: "VP Tech",
-    card: "/images/cards2025-2026/EB2_A7_VPTech (Gabriel).webp",
+    card: "/images/cards2025-2026/EB2_A7_VPTech_Gabriel.jpg",
   },
   {
     id: 8,
@@ -75,5 +75,13 @@ export const execs = [
     lastName: "Ferreira",
     position: "Director of Outreach",
     card: "/images/cards2025-2026/EB2_A12_Director_Outreach (Marianna)_1.webp",
+  },
+  {
+    id: 12,
+    firstName: "Benjamin",
+    lastName: "Wilson",
+    position: "VP Tech",
+    card: "/images/cards2025-2026/EB2_A15_VPAcademic_Benjamin.webp",
   }
+
 ];

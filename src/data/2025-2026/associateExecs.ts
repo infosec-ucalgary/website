@@ -42,10 +42,17 @@ export const associateExecs = [
     card: "/images/cards2025-2026/EB2_B4_DeputyVPTech_Ops (Manav).webp",
   },
   {
-    id: 12,
+    id: 7,
     firstName: "Ankita",
     lastName: "Badr",
     position: "MISP Advisor",
     card: "/images/cards2025-2026/EB2_D1_MISPAdvisor (Ankita).webp",
+  },
+  {
+    id: 8,
+    firstName: "Keerthana",
+    lastName: "Chockalingam",
+    position: "MISP Advisor",
+    card: "/images/cards2025-2026/EB2_D2_MISPAdvisor_Keerthana.webp",
   },
 ];

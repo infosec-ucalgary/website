@@ -1,27 +1,20 @@
 export const specialists =[
-    {
-    id: 1,
-    firstName: "Benjamin",
-    lastName: "Wilson",
-    position: "Techincal Developer",
-    card: "/images/cards2025-2026/EB2_C2_Technical_Developer (Ben).webp",
-  },
   {
-    id: 2,
+    id: 1,
     firstName: "Pavitpal",
     lastName: "Singh Bhagat",
-    position: "Techincal Developer",
+    position: "Technical Developer",
     card: "/images/cards2025-2026/EB2_C3_Technical_Developer (Pav).webp",
   },
   {
-    id: 3,
+    id: 2,
     firstName: "Alexander",
     lastName: "Firth",
     position: "Operations Coordinator",
     card: "/images/cards2025-2026/EB2_C4_Operations_Coordinator (Alex 1st).webp",
   },
   {
-    id: 4,
+    id: 3,
     firstName: "Aleksandr",
     lastName: "Aghajanox",
     position: "Operations Coordinator",
