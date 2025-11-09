@@ -57,31 +57,30 @@ export const execs = [
   },
   {
     id: 9,
+    firstName: "Benjamin",
+    lastName: "Wilson",
+    position: "VP Academic",
+    card: "/images/cards2025-2026/EB2_A15_VPAcademic_Benjamin.webp",
+  },
+  {
+    id: 10,
     firstName: "Royce",
     lastName: "K.",
     position: "Director of CTF Development",
     card: "/images/cards2025-2026/EB2_A10_Director_CTF (Royce).webp",
   },
   {
-    id: 10,
+    id: 11,
     firstName: "Nicholas",
     lastName: "Mackinnon",
     position: "Director of Development",
     card: "/images/cards2025-2026/EB2_A11_Director_Dev (Nick).webp",
   },
   {
-    id: 11,
+    id: 12,
     firstName: "Marianna",
     lastName: "Ferreira",
     position: "Director of Outreach",
     card: "/images/cards2025-2026/EB2_A12_Director_Outreach (Marianna)_1.webp",
-  },
-  {
-    id: 12,
-    firstName: "Benjamin",
-    lastName: "Wilson",
-    position: "VP Tech",
-    card: "/images/cards2025-2026/EB2_A15_VPAcademic_Benjamin.webp",
   }
-
 ];
