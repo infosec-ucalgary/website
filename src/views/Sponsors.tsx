@@ -21,14 +21,14 @@ function Sponsors() {
 
                 
                 <div className=" mt-8">
-                    <img src={fortinetBanner} className="w-[40rem] h-[45rem]"/>
+                    <img src={fortinetBanner} className="w-[40rem]"/>
                 </div>
                 <a href="https://training.fortinet.com/" className="m-12">
                     <img src={fortinetLogo} className="w-[40rem] max-w-[95vw] hover:brightness-50 transition-all ease-linear duration-150"/>
                 </a>
 
                 <div className=" mt-8">
-                    <img src={ecCouncil} className="w-[40rem] h-[40rem]"/>
+                    <img src={ecCouncil} className="w-[40rem] h-full"/>
                 </div>
                 <a href="https://www.eccouncil.org/academia/" className="m-12">
                     <img src={ecCouncilBanner} className="w-[40rem] max-w-[95vw] hover:brightness-50 transition-all ease-linear duration-150"/>
