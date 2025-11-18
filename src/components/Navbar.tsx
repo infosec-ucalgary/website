@@ -18,6 +18,7 @@ function Navbar() {
     { name: "Courses", to: "/courses" },
     { name: "Sponsors", to: "/sponsors" },
     { name: "CTF Winners", to: "/winners" },
+    { name: "FAQ", to: "/faq"},
     { name: "Contact Us", to: "/contact" },
   ];
 

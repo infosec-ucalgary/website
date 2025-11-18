@@ -21,6 +21,7 @@ import Sponsors from "./views/Sponsors.tsx";
 import Courses from "./views/Courses.tsx";
 import Docs from "./views/Writeups.tsx";
 import DocsEditPage from "./views/WriteupsEdit.tsx";
+import FAQ from "./views/FAQ.tsx"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
       <Route path="/courses" element={<Courses />} />
       <Route path="/winners" element={<Winners />} />
       <Route path="/writeups" element={<Docs />} />
+      <Route path="/faq" element={<FAQ />} />
       <Route path="/contact" element={<Contact />} />
 
       <Route path="/writeups/edit" element={<DocsEditPage />} />
