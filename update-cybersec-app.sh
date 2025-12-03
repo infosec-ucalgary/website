@@ -4,7 +4,7 @@ NODE_OPTIONS=--openssl-legacy-provider
 echo Updating CyberSec UCalgary website...
 
 # Pull changes into app directory
-cd /home/admin/repos/website
+cd /home/ubuntu/repos/website
 git fetch --all
 git reset --hard origin/main
 git pull
