@@ -19,10 +19,21 @@ jobs:
           username: ${{ secrets.CYBERA_USERNAME }}
           key: ${{ secrets.CYBERA_RSA }}
           port: 22
-          source: update-cybersec-app.sh        
-          target: /home/ubuntu/bin/          
+          source: update-cybersec-app.sh
+          target: /home/ubuntu/bin/
 
-      - name: Run deploy script on server
+      - name: Copy nginx config to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.CYBERA_HOST }}
+          username: ${{ secrets.CYBERA_USERNAME }}
+          key: ${{ secrets.CYBERA_RSA }}
+          port: 22
+          # adjust this path to where you keep the config in the repo
+          source: infra/nginx/cybersec-ucalgary.club.conf
+          target: /home/ubuntu/nginx/
+
+      - name: Enable nginx site and run deploy
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.CYBERA_HOST }}
@@ -30,5 +41,33 @@ jobs:
           key: ${{ secrets.CYBERA_RSA }}
           port: 22
           script: |
+            set -euo pipefail
+
+            CONF_NAME="cybersec-ucalgary.club.conf"
+            SRC="/home/ubuntu/nginx/${CONF_NAME}"
+            DEST="/etc/nginx/sites-available/${CONF_NAME}"
+            LINK="/etc/nginx/sites-enabled/${CONF_NAME}"
+
+            echo "[+] Installing nginx config..."
+            sudo mkdir -p /etc/nginx/sites-available
+            sudo cp "$SRC" "$DEST"
+            sudo chown root:root "$DEST"
+
+            echo "[+] Enabling site..."
+            sudo ln -sf "$DEST" "$LINK"
+
+            # Optional: disable default site so only your vhost answers
+            if [ -e /etc/nginx/sites-enabled/default ]; then
+              echo "[+] Disabling default nginx site..."
+              sudo rm -f /etc/nginx/sites-enabled/default
+            fi
+
+            echo "[+] Testing nginx config..."
+            sudo nginx -t
+
+            echo "[+] Reloading nginx..."
+            sudo systemctl reload nginx
+
+            echo "[+] Running deploy script..."
             chmod +x /home/ubuntu/bin/update-cybersec-app.sh
             /home/ubuntu/bin/update-cybersec-app.sh
