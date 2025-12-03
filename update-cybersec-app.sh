@@ -1,32 +1,100 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-NODE_OPTIONS=--openssl-legacy-provider
-echo Updating CyberSec UCalgary website...
+export NODE_OPTIONS=--openssl-legacy-provider
 
-# Pull changes into app directory
-cd /home/ubuntu/repos/website
-git fetch --all
-git reset --hard origin/main
-git pull
+echo "=== Updating CyberSec UCalgary website ==="
 
-# Install NPM
-if ! command -v npm >/dev/null 2>&1; then
-  echo "npm not found, installing Node.js..."
-  sudo apt update
-  sudo apt install -y nodejs npm
+APP_DIR="/home/ubuntu/repos/website"
+REPO_URL="https://github.com/infosec-ucalgary/website.git"
+DEPLOY_DIR="/usr/share/nginx/html/cybersec"
+
+# -----------------------------
+# 0) Ensure apt is up to date
+# -----------------------------
+echo "[+] Updating apt..."
+sudo apt-get update -y
+
+# -----------------------------
+# 1) Install git
+# -----------------------------
+if ! command -v git >/dev/null 2>&1; then
+  echo "[+] Installing git..."
+  sudo apt-get install -y git
 fi
-# Make sure NPM is updated and stuff
+
+# -----------------------------
+# 2) Install curl
+# -----------------------------
+if ! command -v curl >/dev/null 2>&1; then
+  echo "[+] Installing curl..."
+  sudo apt-get install -y curl
+fi
+
+# -----------------------------
+# 3) Install Node.js
+# -----------------------------
+if ! command -v npm >/dev/null 2>&1; then
+  echo "[+] Installing Node.js + npm..."
+  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+fi
+
+# -----------------------------
+# 4) Install nginx
+# -----------------------------
+if ! command -v nginx >/dev/null 2>&1; then
+  echo "[+] Installing nginx..."
+  sudo apt-get install -y nginx
+  sudo systemctl enable nginx
+  sudo systemctl start nginx
+fi
+
+# -----------------------------
+# 5) Clone repo if missing
+# -----------------------------
+if [ ! -d "$APP_DIR/.git" ]; then
+  echo "[+] Repo not found. Cloning..."
+  mkdir -p "$(dirname "$APP_DIR")"
+  git clone "$REPO_URL" "$APP_DIR"
+fi
+
+cd "$APP_DIR"
+
+# -----------------------------
+# 6) Update repo
+# -----------------------------
+echo "[+] Pulling latest code..."
+git fetch origin
+git checkout main
+git reset --hard origin/main
+
+# -----------------------------
+# 7) Install dependencies
+# -----------------------------
+echo "[+] Installing node modules..."
 rm -rf node_modules
 npm cache clean --force
 npm ci
 
-# Build app
+# -----------------------------
+# 8) Build site
+# -----------------------------
+echo "[+] Building site..."
 npm run build
 
-# Delete app dist folder from /usr/share/nginx/html/dist
-rm -rf /usr/share/nginx/html/dist
+# -----------------------------
+# 9) Deploy to Nginx
+# -----------------------------
+echo "[+] Deploying to nginx root $DEPLOY_DIR ..."
+sudo rm -rf "$DEPLOY_DIR"
+sudo mkdir -p "$DEPLOY_DIR"
+sudo cp -r dist/* "$DEPLOY_DIR/"
 
-# Copy freshly built app into the just deleted directory
-cp -r dist /usr/share/nginx/html/cybersec
+# -----------------------------
+# 10) Reload Nginx
+# -----------------------------
+echo "[+] Reloading nginx..."
+sudo systemctl reload nginx
 
-echo Done.
+echo "=== Deployment completed successfully ==="
