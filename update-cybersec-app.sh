@@ -9,6 +9,12 @@ git fetch --all
 git reset --hard origin/main
 git pull
 
+# Install NPM
+if ! command -v npm >/dev/null 2>&1; then
+  echo "npm not found, installing Node.js..."
+  sudo apt update
+  sudo apt install -y nodejs npm
+fi
 # Make sure NPM is updated and stuff
 rm -rf node_modules
 npm cache clean --force
