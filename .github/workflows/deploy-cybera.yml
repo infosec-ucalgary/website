@@ -1,25 +1,34 @@
 name: Deploy-Cybera
 
-# Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   deploy:
-    # The type of runner that the job will run on
     runs-on: self-hosted
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Deploy package to digitalocean
-        uses: appleboy/ssh-action@master
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
+      - name: Copy deploy script to server
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.CYBERA_HOST }}
           username: ${{ secrets.CYBERA_USERNAME }}
           key: ${{ secrets.CYBERA_RSA }}
           port: 22
-          script: /home/admin/bin/update-cybersec-app.sh
+          source: update-cybersec-app.sh        
+          target: /home/ubuntu/bin/          
+
+      - name: Run deploy script on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.CYBERA_HOST }}
+          username: ${{ secrets.CYBERA_USERNAME }}
+          key: ${{ secrets.CYBERA_RSA }}
+          port: 22
+          script: |
+            chmod +x /home/ubuntu/bin/update-cybersec-app.sh
+            /home/ubuntu/bin/update-cybersec-app.sh
