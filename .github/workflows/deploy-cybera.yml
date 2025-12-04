@@ -30,7 +30,7 @@ jobs:
           key: ${{ secrets.CYBERA_RSA }}
           port: 22
           source: infra/nginx/cybersec-ucalgary.club.conf
-          target: /home/${{ secrets.CYBERA_USERNAME }}/
+          target: /home/ubuntu/
 
       - name: Enable nginx site and run deploy
         uses: appleboy/ssh-action@v1.0.3
@@ -43,7 +43,7 @@ jobs:
             set -euo pipefail
 
             CONF_NAME="cybersec-ucalgary.club.conf"
-            SRC="/home/${USER}/${CONF_NAME}"
+            SRC="/home/ubuntu/${CONF_NAME}"
             DEST="/etc/nginx/sites-available/${CONF_NAME}"
             LINK="/etc/nginx/sites-enabled/${CONF_NAME}"
 
@@ -67,5 +67,5 @@ jobs:
             sudo systemctl reload nginx
 
             echo "[+] Running deploy script..."
-            chmod +x /home/${USER}/update-cybersec-app.sh
-            /home/${USER}/update-cybersec-app.sh
+            chmod +x /home/ubuntu/update-cybersec-app.sh
+            /home/ubuntu/update-cybersec-app.sh
