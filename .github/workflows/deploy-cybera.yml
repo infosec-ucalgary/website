@@ -20,7 +20,7 @@ jobs:
           key: ${{ secrets.CYBERA_RSA }}
           port: 22
           source: update-cybersec-app.sh
-          target: /home/ubuntu/bin/
+          target: /home/${{ secrets.CYBERA_USERNAME }}/
 
       - name: Copy nginx config to server
         uses: appleboy/scp-action@v0.1.7
@@ -29,9 +29,8 @@ jobs:
           username: ${{ secrets.CYBERA_USERNAME }}
           key: ${{ secrets.CYBERA_RSA }}
           port: 22
-          # adjust this path to where you keep the config in the repo
           source: infra/nginx/cybersec-ucalgary.club.conf
-          target: /home/ubuntu/nginx/
+          target: /home/${{ secrets.CYBERA_USERNAME }}/
 
       - name: Enable nginx site and run deploy
         uses: appleboy/ssh-action@v1.0.3
@@ -44,7 +43,7 @@ jobs:
             set -euo pipefail
 
             CONF_NAME="cybersec-ucalgary.club.conf"
-            SRC="/home/ubuntu/nginx/${CONF_NAME}"
+            SRC="/home/${USER}/${CONF_NAME}"
             DEST="/etc/nginx/sites-available/${CONF_NAME}"
             LINK="/etc/nginx/sites-enabled/${CONF_NAME}"
 
@@ -56,7 +55,6 @@ jobs:
             echo "[+] Enabling site..."
             sudo ln -sf "$DEST" "$LINK"
 
-            # Optional: disable default site so only your vhost answers
             if [ -e /etc/nginx/sites-enabled/default ]; then
               echo "[+] Disabling default nginx site..."
               sudo rm -f /etc/nginx/sites-enabled/default
@@ -69,5 +67,5 @@ jobs:
             sudo systemctl reload nginx
 
             echo "[+] Running deploy script..."
-            chmod +x /home/ubuntu/bin/update-cybersec-app.sh
-            /home/ubuntu/bin/update-cybersec-app.sh
+            chmod +x /home/${USER}/update-cybersec-app.sh
+            /home/${USER}/update-cybersec-app.sh
