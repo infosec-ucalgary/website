@@ -59,13 +59,15 @@ jobs:
               echo "[+] Disabling default nginx site..."
               sudo rm -f /etc/nginx/sites-enabled/default
             fi
-
+            
+            echo "[+] Running deploy script..."
+            chmod +x /home/ubuntu/update-cybersec-app.sh
+            /home/ubuntu/update-cybersec-app.sh
+            
             echo "[+] Testing nginx config..."
             sudo nginx -t
 
             echo "[+] Reloading nginx..."
             sudo systemctl reload nginx
 
-            echo "[+] Running deploy script..."
-            chmod +x /home/ubuntu/update-cybersec-app.sh
-            /home/ubuntu/update-cybersec-app.sh
+            
