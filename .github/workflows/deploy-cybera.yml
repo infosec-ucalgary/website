@@ -43,7 +43,7 @@ jobs:
             set -euo pipefail
 
             CONF_NAME="cybersec-ucalgary.club.conf"
-            SRC="/home/ubuntu/${CONF_NAME}"
+            SRC="/home/ubuntu/infra/nginx/${CONF_NAME}"
             DEST="/etc/nginx/sites-available/${CONF_NAME}"
             LINK="/etc/nginx/sites-enabled/${CONF_NAME}"
 
