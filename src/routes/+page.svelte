@@ -10,10 +10,38 @@
 		kicker="PLACEHOLDER"
 		title="PLACEHOLDER"
 		abstract="Lorum ipsum dolor sit amet."
-		tags={['']}
+		tags={['PLACEHOLDER']}
 	/>
 
 	<hr />
+
+	<FeatureRow
+		kicker="PLACEHOLDER"
+		title="PLACEHOLDER"
+		abstract="Lorum ipsum dolor sit amet."
+		tags={['PLACEHOLDER']}
+	/>
+
+	<FeatureRow
+		kicker="PLACEHOLDER"
+		title="PLACEHOLDER"
+		abstract="Lorum ipsum dolor sit amet."
+		tags={['PLACEHOLDER']}
+	/>
+
+	<FeatureRow
+		kicker="PLACEHOLDER"
+		title="PLACEHOLDER"
+		abstract="Lorum ipsum dolor sit amet."
+		tags={['PLACEHOLDER']}
+	/>
+
+	<FeatureRow
+		kicker="PLACEHOLDER"
+		title="PLACEHOLDER"
+		abstract="Lorum ipsum dolor sit amet."
+		tags={['PLACEHOLDER']}
+	/>
 
 	<FeatureRow
 		kicker="PLACEHOLDER"
@@ -37,7 +65,7 @@
 	}
 
 	.home {
-		max-width: 72rem;
+		max-width: var(--content-max-width);
 		margin: 0 auto;
 		padding: 2rem 1.25rem;
 		display: flex;
