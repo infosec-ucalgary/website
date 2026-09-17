@@ -5,10 +5,15 @@
 @layer base {
 	:root {
 		color-scheme: dark;
+		--content-max-width: 72rem;
 	}
 
 	body {
 		background-color: var(--color-background);
 		color: var(--color-foreground);
+		font-family: 'Oxanium', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: normal;
 	}
 }
