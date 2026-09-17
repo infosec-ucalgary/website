@@ -4,6 +4,7 @@
   packages = [
     pkgs.git
     pkgs.sqlite
+    pkgs.nodePackages.typescript-language-server
   ];
 
   languages.javascript = {
