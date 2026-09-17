@@ -9,6 +9,13 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<title>The UCalgary CyberSecurity Club</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap"
+		rel="stylesheet"
+	/>
 </svelte:head>
 <SiteHeader />
 {@render children()}
