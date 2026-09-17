@@ -9,7 +9,7 @@
 
   languages.javascript = {
     enable = true;
-    package = pkgs.nodejs_20;
+    package = pkgs.nodejs;
     npm.enable = true;
   };
 
