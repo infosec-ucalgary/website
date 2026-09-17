@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@import '../lib/theme.css';
+
+@layer base {
+	:root {
+		color-scheme: dark;
+	}
+
+	body {
+		background-color: var(--color-background);
+		color: var(--color-foreground);
+	}
+}

@@ -1,0 +1,31 @@
+/* Dark purple site theme. Defines design tokens as Tailwind v4 theme vars,
+   so they're usable as utilities: bg-background, text-foreground, bg-brand-500,
+   border-border, text-muted, bg-accent, text-danger, etc. */
+
+@theme {
+	--color-brand-50: #f5f3ff;
+	--color-brand-100: #ede9fe;
+	--color-brand-200: #ddd6fe;
+	--color-brand-300: #c4b5fd;
+	--color-brand-400: #a78bfa;
+	--color-brand-500: #8b5cf6;
+	--color-brand-600: #7c3aed;
+	--color-brand-700: #6d28d9;
+	--color-brand-800: #5b21b6;
+	--color-brand-900: #4c1d95;
+	--color-brand-950: #2e1065;
+
+	--color-background: #14101f;
+	--color-surface: #1c1530;
+	--color-surface-hover: #251c3d;
+	--color-border: #392a56;
+
+	--color-foreground: #f3eefc;
+	--color-muted: #a99cc4;
+
+	--color-accent: #d946ef;
+
+	--color-success: #34d399;
+	--color-warning: #fbbf24;
+	--color-danger: #f87171;
+}
