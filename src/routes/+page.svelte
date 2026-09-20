@@ -1,3 +1,5 @@
+<!-- This is the landing page -->
+
 <script lang="ts">
 	import FeatureRow from '$lib/components/FeatureRow.svelte';
 </script>
