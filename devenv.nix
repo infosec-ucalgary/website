@@ -5,6 +5,7 @@
     pkgs.git
     pkgs.sqlite
     pkgs.typescript-language-server
+    pkgs.wrangler
   ];
 
   languages.javascript = {
