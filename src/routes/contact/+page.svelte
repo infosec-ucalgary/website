@@ -1,2 +1,2 @@
 <h1>Contact</h1>
-<!-- TODO: contact details / form -->
+<!-- This page should contain our LinkedIn, Discord server invite and club email (official ucalgary one) -->

@@ -1,3 +1,6 @@
+// This is the entry point for the server. Don't touch this unless
+// you know what you are doing
+
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
 declare global {
