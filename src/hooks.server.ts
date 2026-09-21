@@ -1,3 +1,5 @@
+// This is where we will have to load cookies from the browser
+
 import type { Handle } from '@sveltejs/kit';
 
 // TODO: read the session cookie, look up the session in D1 (src/lib/server/session.ts),

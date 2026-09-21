@@ -1,54 +1,13 @@
+<!-- This is the landing page -->
+
 <script lang="ts">
 	import FeatureRow from '$lib/components/FeatureRow.svelte';
 </script>
 
 <h1 class="sr-only">UCalgary Cyber Security Club</h1>
 
-<!-- TODO: generic placeholders; no events/news data source wired up yet -->
 <div class="home">
-	<FeatureRow
-		kicker="PLACEHOLDER"
-		title="PLACEHOLDER"
-		abstract="Lorum ipsum dolor sit amet."
-		tags={['PLACEHOLDER']}
-	/>
-
-	<hr />
-
-	<FeatureRow
-		kicker="PLACEHOLDER"
-		title="PLACEHOLDER"
-		abstract="Lorum ipsum dolor sit amet."
-		tags={['PLACEHOLDER']}
-	/>
-
-	<FeatureRow
-		kicker="PLACEHOLDER"
-		title="PLACEHOLDER"
-		abstract="Lorum ipsum dolor sit amet."
-		tags={['PLACEHOLDER']}
-	/>
-
-	<FeatureRow
-		kicker="PLACEHOLDER"
-		title="PLACEHOLDER"
-		abstract="Lorum ipsum dolor sit amet."
-		tags={['PLACEHOLDER']}
-	/>
-
-	<FeatureRow
-		kicker="PLACEHOLDER"
-		title="PLACEHOLDER"
-		abstract="Lorum ipsum dolor sit amet."
-		tags={['PLACEHOLDER']}
-	/>
-
-	<FeatureRow
-		kicker="PLACEHOLDER"
-		title="PLACEHOLDER"
-		abstract="Lorum ipsum dolor sit amet."
-		tags={['PLACEHOLDER']}
-	/>
+	
 </div>
 
 <style>
