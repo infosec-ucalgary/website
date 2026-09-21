@@ -2,6 +2,12 @@
 @plugin '@tailwindcss/typography';
 @import '../lib/theme.css';
 
+<!--
+	This file is used to define global styles for the application.
+	It is imported in the root layout file (src/routes/+layout.svelte)
+	and applies to all pages in the application.
+-->
+
 @layer base {
 	:root {
 		color-scheme: dark;
