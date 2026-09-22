@@ -2,11 +2,24 @@
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 
+	import TickerBar, { type TickerMessage } from './TickerBar.svelte';
+
 	// TODO: replace with the club's real URLs.
 	const DISCORD_URL = 'https://discord.gg/TODO';
 	const LINKEDIN_URL = 'https://linkedin.com/company/TODO';
 	const INSTAGRAM_URL = 'https://instagram.com/TODO';
 	const EMAIL_ADDRESS = 'contact@TODO.example';
+
+	// The ticker: edit this list to change what scrolls by. Each entry is
+	// { text, href? } — with an href it becomes a link, without one it's plain
+	// text. Order is the rotation order; the bar hides itself if the list is empty.
+	// TODO: pull real events/announcements; static placeholders for now.
+	const TICKER_MESSAGES: TickerMessage[] = [
+		{ text: '📅 Next event: YOU For Sale', href: resolve('/events') },
+		{ text: '💬 Join the conversation on Discord', href: DISCORD_URL },
+		{ text: '🔗 Follow us on LinkedIn', href: LINKEDIN_URL },
+		{ text: '✍️ Read the latest writeups', href: resolve('/blog') }
+	];
 
 	const current = $derived(page.url.pathname);
 
@@ -36,17 +49,7 @@
 <div class="sticky-header">
 	<div class="ticker-bar">
 		<div class="ticker-inner">
-			<!-- decorative + auto-rotating: hidden from assistive tech, not essential content -->
-			<div class="ticker-rotator" aria-hidden="true">
-				<div class="ticker-track">
-					<!-- TODO: pull real events/announcements; static placeholders for now -->
-					<span class="ticker-item">📅 Next event: YOU For Sale</span>
-					<span class="ticker-item">💬 Join the conversation on Discord</span>
-					<span class="ticker-item">🔗 Follow us on LinkedIn</span>
-					<span class="ticker-item">PLACEHOLDER STATUS BAR THINGY</span>
-					<span class="ticker-item">📅 Next event: YOU For Sale</span>
-				</div>
-			</div>
+			<TickerBar messages={TICKER_MESSAGES} />
 
 			<!-- fixed, independent of the rotator above -->
 			<div class="ticker-socials">
@@ -110,6 +113,9 @@
 		position: sticky;
 		top: 0;
 		z-index: 50;
+		/* the whole header chrome (ticker, brand, nav) stays on the display face,
+		   while page content below inherits the body font */
+		font-family: var(--font-display);
 	}
 
 	/* logo/nav row: rests aligned to the same centered column as page content
@@ -130,7 +136,6 @@
 	}
 
 	.ticker-bar {
-		--item-h: 1.6rem;
 		background: var(--color-surface);
 		border-bottom: 1px solid var(--color-border);
 	}
@@ -142,58 +147,6 @@
 		justify-content: space-between;
 		gap: 1rem;
 		padding: 0.4rem 1.25rem;
-	}
-
-	.ticker-rotator {
-		height: var(--item-h);
-		overflow: hidden;
-		font-size: 0.8rem;
-		color: var(--color-muted);
-	}
-
-	.ticker-track {
-		display: flex;
-		flex-direction: column-reverse;
-		animation: ticker-rotate 16s ease-in-out infinite;
-	}
-
-	.ticker-item {
-		height: var(--item-h);
-		display: flex;
-		align-items: center;
-		white-space: nowrap;
-	}
-
-	/* stack (post column-reverse, top to bottom): item1-dup, item4, item3, item2, item1.
-	   translateY rises toward 0 over time, so each new line drops in from the top
-	   and the previous one exits the bottom — a "wheel rotating down". */
-	@keyframes ticker-rotate {
-		0%,
-		18% {
-			transform: translateY(calc(-4 * var(--item-h)));
-		}
-		23%,
-		41% {
-			transform: translateY(calc(-3 * var(--item-h)));
-		}
-		46%,
-		64% {
-			transform: translateY(calc(-2 * var(--item-h)));
-		}
-		69%,
-		87% {
-			transform: translateY(calc(-1 * var(--item-h)));
-		}
-		92%,
-		100% {
-			transform: translateY(0);
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.ticker-track {
-			animation: none;
-		}
 	}
 
 	.ticker-socials {
