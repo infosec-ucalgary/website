@@ -1,5 +1,5 @@
-// This is the entry point for the server. Don't touch this unless
-// you know what you are doing
+// This file is used to integrate Cloudflare types
+// into the project
 
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
