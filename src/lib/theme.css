@@ -28,4 +28,9 @@
 	--color-success: #34d399;
 	--color-warning: #fbbf24;
 	--color-danger: #f87171;
+
+	/* Oxanium for headings and the site header; Share Tech Mono for body copy.
+	   Both are loaded in routes/+layout.svelte. Usable as font-display/font-body. */
+	--font-display: 'Oxanium', sans-serif;
+	--font-body: 'Share Tech Mono', ui-monospace, monospace;
 }
