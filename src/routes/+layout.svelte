@@ -19,6 +19,10 @@
 		href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap"
 		rel="stylesheet"
 	/>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+		rel="stylesheet"
+	/>
 </svelte:head>
 
 <!-- Show sit header on every page -->
