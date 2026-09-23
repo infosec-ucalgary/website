@@ -4,10 +4,28 @@
 	import FeatureRow from '$lib/components/FeatureRow.svelte';
 </script>
 
+{#snippet flagIcon()}
+	<svg viewBox="0 0 16 16" fill="currentColor" role="presentation">
+		<path
+			d="M3 1a.75.75 0 0 1 .75.75v.36l8.64 1.9a.5.5 0 0 1 .1.94L4.5 8.6v6.65a.75.75 0 0 1-1.5 0V1.75A.75.75 0 0 1 3 1Z"
+		/>
+	</svg>
+{/snippet}
+
 <h1 class="sr-only">UCalgary Cyber Security Club</h1>
 
 <div class="home">
-	
+	<FeatureRow
+		kicker="test kicker"
+		title="test title"
+		abstract="test abstract"
+		tags={[
+			'test tag 1',
+			{ label: 'test tag 2', color: 'accent' },
+			{ label: 'ctf', color: 'success', icon: flagIcon },
+			{ label: 'members only', color: 'muted', icon: '🔒' }
+		]}
+	/>
 </div>
 
 <style>
