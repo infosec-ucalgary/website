@@ -1,13 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
+	import {DISCORD_URL, LINKEDIN_URL, INSTAGRAM_URL, EMAIL_ADDRESS } from '$lib/links';
+	import logo from "$lib/assets/logo.svg";
 
 	import TickerBar, { type TickerMessage } from './TickerBar.svelte';
-
-	const DISCORD_URL = 'http://discord.gg/wVwv5Pw';
-	const LINKEDIN_URL = 'https://www.linkedin.com/company/cybersec-ucalgary';
-	const INSTAGRAM_URL = 'https://www.instagram.com/cybersecucalgary/';
-	const EMAIL_ADDRESS = 'cybersec.club@ucalgary.ca';
 
 	// The ticker: edit this list to change what scrolls by. Each entry is
 	// { text, href? } — with an href it becomes a link, without one it's plain
@@ -89,7 +86,7 @@
 	<header class="site-header" class:at-top={atTop}>
 		<div class="header-inner">
 			<a href={resolve('/')} class="brand">
-				<img src="/images/logo.svg" alt="" width="40" height="40" />
+				<img src={logo} alt="" width="40" height="40" />
 				<span>UCalgary Cyber Security Club</span>
 			</a>
 
