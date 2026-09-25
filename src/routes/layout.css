@@ -15,6 +15,7 @@
 		color-scheme: dark;
 		--content-max-width: 72rem;
 		--footer-bar-height: 3.5rem;
+		--page-gutter: 1.25rem;
 	}
 
 	body {

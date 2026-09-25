@@ -122,7 +122,7 @@
 		max-width: var(--content-max-width);
 		margin: 0 auto;
 		width: 100%;
-		padding-inline: 1.25rem;
+		padding-inline: var(--page-gutter);
 		box-sizing: border-box;
 		transition: max-width 0.4s ease;
 	}
