@@ -6,6 +6,8 @@ This project uses `devenv`. See [https://devenv.sh/getting-started/](https://dev
 
 ## Development
 
+DEVELOPMENT SHOULD **ONLY** BE DONE IN THIS MAIN BRANCH. DO NOT WRITE YOUR CODE OR PULL REQUESTS IN PROD.
+
 Please read up on how SvelteKit handles routing. The repo has been setup for all the pages, they just need to be implemented.
 You should not be editing anything besides the code in `src` and static images in `static` unless you know what you are doing.
 
