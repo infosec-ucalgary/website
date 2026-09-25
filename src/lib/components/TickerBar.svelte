@@ -12,6 +12,8 @@
 </script>
 
 <script lang="ts">
+	import { tick } from 'svelte';
+
 	type Props = {
 		/** Messages to cycle through, in order. Add/remove freely — nothing else to update. */
 		messages: TickerMessage[];
@@ -28,6 +30,8 @@
 	let animate = $state(true);
 	let paused = $state(false);
 
+	let track: HTMLDivElement | undefined = $state();
+
 	const isExternal = (href: string) => /^(https?:|mailto:|tel:)/.test(href);
 
 	// Rendering one clone of the first message after the last lets the wheel keep
@@ -43,22 +47,24 @@
 
 		let resetTimer: ReturnType<typeof setTimeout> | undefined;
 
-		const tick = setInterval(() => {
+		const cycle = setInterval(() => {
 			if (paused) return;
 			index += 1;
 			if (index === messages.length) {
-				resetTimer = setTimeout(() => {
+				resetTimer = setTimeout(async () => {
 					animate = false;
 					index = 0;
-					requestAnimationFrame(() => {
-						animate = true;
-					});
+
+					await tick();
+					track?.getBoundingClientRect();
+
+					animate = true;
 				}, SLIDE_MS);
 			}
 		}, interval);
 
 		return () => {
-			clearInterval(tick);
+			clearInterval(cycle);
 			clearTimeout(resetTimer);
 		};
 	});
@@ -74,7 +80,7 @@
 		onfocusout={() => (paused = false)}
 		role="presentation"
 	>
-		<div class="track" class:animate style="--index: {index}">
+		<div class="track" class:animate bind:this={track} style="--index: {index}">
 			{#each rendered as message, i (i)}
 				{@const active = i === index}
 				<div class="item" aria-hidden={active ? undefined : 'true'}>
