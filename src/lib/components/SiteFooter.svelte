@@ -1,5 +1,6 @@
 <script lang="ts">
-    import logo from "$lib/assets/logo.svg"
+    import FooterLinkColumn from "$lib/components/FooterLinkColumn.svelte";
+    import { resolve } from "$app/paths";
 
     let revealed = $state(false);
 
@@ -7,9 +8,9 @@
         const THRESHOLD = 80;
 
         let ticking = false;
-        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
 
         const update = () => {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
             revealed = scrollable <= THRESHOLD || window.scrollY > THRESHOLD;
             ticking = false;
         }
@@ -35,7 +36,12 @@
 
 <footer class="site-footer" class:revealed>
     <div class="footer-inner">
-        <!-- TODO: Add links and stuff here -->
+        <FooterLinkColumn
+            title="Links"
+            links={[
+                { display: 'Events', href: resolve('/events')}
+            ]}
+        />
     </div>
 </footer>
 
@@ -57,6 +63,8 @@
             visibility 0.35s;
         
         border-top: 1px solid var(--color-border);
+
+        font-family: var(--font-display);
     }
 
     .site-footer.revealed {
