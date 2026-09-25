@@ -14,6 +14,8 @@
 <script lang="ts">
 	import { tick } from 'svelte';
 
+	import { isExternal } from '$lib/links';
+
 	type Props = {
 		/** Messages to cycle through, in order. Add/remove freely — nothing else to update. */
 		messages: TickerMessage[];
@@ -31,8 +33,6 @@
 	let paused = $state(false);
 
 	let track: HTMLDivElement | undefined = $state();
-
-	const isExternal = (href: string) => /^(https?:|mailto:|tel:)/.test(href);
 
 	// Rendering one clone of the first message after the last lets the wheel keep
 	// turning the same direction past the end; once the clone is showing we snap
