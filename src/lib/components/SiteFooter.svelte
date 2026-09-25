@@ -1,6 +1,9 @@
 <script lang="ts">
     import FooterLinkColumn from "$lib/components/FooterLinkColumn.svelte";
     import { resolve } from "$app/paths";
+    import {DISCORD_URL, LINKEDIN_URL, INSTAGRAM_URL } from '$lib/links';
+    import logo from '$lib/assets/logo.svg';
+
 
     let revealed = $state(false);
 
@@ -36,12 +39,26 @@
 
 <footer class="site-footer" class:revealed>
     <div class="footer-inner">
-        <FooterLinkColumn
-            title="Links"
-            links={[
-                { display: 'Events', href: resolve('/events')}
-            ]}
-        />
+        <img src={logo} alt="CyberSec Logo" />
+        <div class="links">
+            <FooterLinkColumn
+                title="Pages"
+                links={[
+                    { display: 'Events', href: resolve('/events') },
+                    { display: 'About', href: resolve('/about') },
+                    { display: 'Blog', href: resolve('/blog') }
+                ]}
+            />
+
+            <FooterLinkColumn
+                title="Socials"
+                links={[
+                    { display: 'LinkedIn', href: LINKEDIN_URL },
+                    { display: 'Discord', href: DISCORD_URL },
+                    { display: 'Instagram', href: INSTAGRAM_URL }
+                ]}
+            />
+        </div>
     </div>
 </footer>
 
@@ -79,6 +96,9 @@
         margin: 0 auto;
         box-sizing: border-box;
         padding-inline: 1.25rem;
+        display: flex;
+        flex-direction: row;
+        align-items: end;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -86,5 +106,9 @@
             transform: none;
             transition: opacity 0.2s ease, visibility 0.2s;
         }
+    }
+
+    img {
+        max-height: 10%;
     }
 </style>
