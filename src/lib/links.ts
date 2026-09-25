@@ -7,3 +7,8 @@
  * before they reach here, so they arrive as plain paths and read as internal.
  */
 export const isExternal = (href: string) => /^(https?:|mailto:|tel:)/.test(href);
+
+export const DISCORD_URL = 'http://discord.gg/wVwv5Pw';
+export const LINKEDIN_URL = 'https://www.linkedin.com/company/cybersec-ucalgary';
+export const INSTAGRAM_URL = 'https://www.instagram.com/cybersecucalgary/';
+export const EMAIL_ADDRESS = 'cybersec.club@ucalgary.ca';
