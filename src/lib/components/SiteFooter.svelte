@@ -4,7 +4,6 @@
     import {DISCORD_URL, LINKEDIN_URL, INSTAGRAM_URL } from '$lib/links';
     import logo from '$lib/assets/logo.svg';
 
-
     let revealed = $state(false);
 
     $effect(() => {
@@ -39,7 +38,7 @@
 
 <footer class="site-footer" class:revealed>
     <div class="footer-inner">
-        <img src={logo} alt="CyberSec Logo" />
+        <img class="logo" src={logo} alt="CyberSec Logo" />
         <div class="links">
             <FooterLinkColumn
                 title="Pages"
@@ -82,6 +81,8 @@
         border-top: 1px solid var(--color-border);
 
         font-family: var(--font-display);
+
+        --footer-height: 8rem;
     }
 
     .site-footer.revealed {
@@ -92,13 +93,20 @@
 
     .footer-inner {
         max-width: var(--content-max-width);
+        height: var(--footer-height);
         width: 100%;
         margin: 0 auto;
         box-sizing: border-box;
-        padding-inline: 1.25rem;
+        padding-block: 1rem;
         display: flex;
         flex-direction: row;
         align-items: end;
+        justify-content: space-between;
+    }
+
+    .links {
+        display: flex;
+        gap: 2rem;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -108,7 +116,10 @@
         }
     }
 
-    img {
-        max-height: 10%;
+    .logo {
+        height: 100%;
+        width: auto;
+        display: block;
+        align-self: start;
     }
 </style>
