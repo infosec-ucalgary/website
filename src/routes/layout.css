@@ -4,11 +4,11 @@
 @plugin '@tailwindcss/typography';
 @import '../lib/theme.css';
 
-<!--
+/*
 	This file is used to define global styles for the application.
 	It is imported in the root layout file (src/routes/+layout.svelte)
 	and applies to all pages in the application.
--->
+*/
 
 @layer base {
 	:root {
@@ -19,9 +19,19 @@
 	body {
 		background-color: var(--color-background);
 		color: var(--color-foreground);
-		font-family: 'Oxanium', sans-serif;
+		font-family: var(--font-body);
 		font-optical-sizing: auto;
 		font-weight: 400;
 		font-style: normal;
+	}
+
+	/* headings stay on the display face; body copy inherits the mono from body */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-display);
 	}
 }
