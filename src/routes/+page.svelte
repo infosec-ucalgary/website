@@ -1,9 +1,5 @@
 <!-- This is the landing page -->
 
-<script lang="ts">
-	import FeatureRow from '$lib/components/FeatureRow.svelte';
-</script>
-
 <h1 class="sr-only">UCalgary Cyber Security Club</h1>
 
 <div class="home">
@@ -30,11 +26,5 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-	}
-
-	hr {
-		border: none;
-		border-top: 1px solid var(--color-border);
-		margin: 0;
 	}
 </style>
