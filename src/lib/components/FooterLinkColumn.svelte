@@ -39,12 +39,20 @@
 
 <style>
     .link-column-container {
-        max-width: fit-content;
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: end;
     }
+
+	.link-column-inner {
+		padding: 10px;
+		
+	}
 
     .column-title {
         padding-bottom: 0;
         margin-bottom: 0;
+		font-size: 12px;
     }
 
 	.column-links {
@@ -55,7 +63,7 @@
 
     .column-link {
         color: var(--color-muted);
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .column-link:hover {
