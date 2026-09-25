@@ -4,11 +4,10 @@
 
 	import TickerBar, { type TickerMessage } from './TickerBar.svelte';
 
-	// TODO: replace with the club's real URLs.
-	const DISCORD_URL = 'https://discord.gg/TODO';
-	const LINKEDIN_URL = 'https://linkedin.com/company/TODO';
-	const INSTAGRAM_URL = 'https://instagram.com/TODO';
-	const EMAIL_ADDRESS = 'contact@TODO.example';
+	const DISCORD_URL = 'http://discord.gg/wVwv5Pw';
+	const LINKEDIN_URL = 'https://www.linkedin.com/company/cybersec-ucalgary';
+	const INSTAGRAM_URL = 'https://www.instagram.com/cybersecucalgary/';
+	const EMAIL_ADDRESS = 'cybersec.club@ucalgary.ca';
 
 	// The ticker: edit this list to change what scrolls by. Each entry is
 	// { text, href? } — with an href it becomes a link, without one it's plain
@@ -100,7 +99,7 @@
 					>Events</a
 				>
 				<a href={resolve('/about')} aria-current={current === '/about' ? 'page' : undefined}
-					>Meet the Team</a
+					>About</a
 				>
 				<a href={resolve('/blog')} aria-current={current === '/blog' ? 'page' : undefined}>Blog</a>
 			</nav>
