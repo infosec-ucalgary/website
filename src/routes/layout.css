@@ -14,10 +14,12 @@
 	:root {
 		color-scheme: dark;
 		--content-max-width: 72rem;
+		--footer-bar-height: 3.5rem;
 	}
 
 	body {
 		background-color: var(--color-background);
+		padding-bottom: var(--footer-bar-height);
 		color: var(--color-foreground);
 		font-family: var(--font-body);
 		font-optical-sizing: auto;
