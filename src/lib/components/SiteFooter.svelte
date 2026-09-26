@@ -38,7 +38,7 @@
 
 <footer class="site-footer" class:revealed>
     <div class="footer-inner">
-        <img class="logo" src={logo} alt="CyberSec Logo" />
+        <enhanced:img class="logo" src={logo} alt="CyberSec Logo" />
         <div class="links">
             <FooterLinkColumn
                 title="Pages"
