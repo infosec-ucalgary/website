@@ -1,0 +1,1 @@
+<h1>Join our mailing list!</h1>
