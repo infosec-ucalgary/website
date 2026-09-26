@@ -3,6 +3,8 @@
 <script lang="ts">
 	import HomeGrid from "$lib/components/HomeGrid.svelte";
 	import HomeGridBox from "$lib/components/HomeGridBox.svelte";
+	import { resolve } from "$app/paths";
+
 </script>
 
 <h1 class="sr-only">UCalgary Cyber Security Club</h1>
@@ -11,13 +13,33 @@
 	<HomeGrid>
 		<HomeGridBox size="hero">
 			<h2>Upcoming Event</h2>
+			<hr>
+			<p>Some event description here</p>
 		</HomeGridBox>
 		<HomeGridBox size="small">
 			<h2>Mailing List</h2>
-			<a>Join now!</a>
+			<hr>
+			<a class="button-link" href={resolve('/mailing')}>Join now!</a>
+		</HomeGridBox>
+		<HomeGridBox size="medium">
+			<h2>Placeholder</h2>
+			<hr>
 		</HomeGridBox>
 		<HomeGridBox size="tall">
 			<h2>Latest Post</h2>
+			<hr>
+		</HomeGridBox>
+		<HomeGridBox size="square">
+			<h2>Placeholder</h2>
+			<hr>
+		</HomeGridBox>
+		<HomeGridBox size="wide">
+			<h2>Placeholder</h2>
+			<hr>
+		</HomeGridBox>
+		<HomeGridBox size="small">
+			<h2>Placeholder</h2>
+			<hr>
 		</HomeGridBox>
 	</HomeGrid>
 </div>
@@ -42,5 +64,23 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
+	}
+
+	p {
+		background-color: var(--color-surface-darker);
+		padding: 1rem 1rem;
+		border-radius: var(--border-radius);
+	}
+
+	.button-link {
+		padding: 1rem;
+		border-radius: var(--border-radius);
+		background-color: var(--color-brand-700);
+		text-align: center;
+	}
+
+	.button-link:hover {
+		text-decoration: underline;
+		background-color: var(--color-brand-800);
 	}
 </style>
