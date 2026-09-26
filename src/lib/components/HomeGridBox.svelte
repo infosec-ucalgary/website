@@ -1,5 +1,5 @@
 <script lang="ts" module>
-    export type BoxSize = 'small' | 'square' | 'wide' | 'tall' | 'hero';
+    export type BoxSize = 'small' | 'square' | 'wide' | 'medium' | 'tall' | 'hero';
 </script>
 
 <script lang="ts">
@@ -19,7 +19,7 @@
 
 <style>
     .box {
-        border-radius: 1rem;
+        border-radius: var(--border-radius);
         border: 1px solid var(--color-border);
         background: var(--color-surface);
         padding: 1.25rem;
@@ -32,6 +32,7 @@
 
     @media (min-width: 52rem) {
         .box[data-size='small']  { grid-column: span 1; grid-row: span 1; }
+        .box[data-size='medium'] { grid-column: span 1; grid-row: span 2; }
         .box[data-size='square'] { grid-column: span 2; grid-row: span 2; }
         .box[data-size='wide']   { grid-column: span 3; grid-row: span 1; }
         .box[data-size='tall']   { grid-column: span 1; grid-row: span 3; }
