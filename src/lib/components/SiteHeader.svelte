@@ -6,16 +6,23 @@
 
 	import TickerBar, { type TickerMessage } from './TickerBar.svelte';
 
+	type Props = {
+		/** Soonest upcoming event from the database (null if none). */
+		nextEvent: { title: string; date: Date } | null;
+	};
+
+	let { nextEvent }: Props = $props();
+
 	// The ticker: edit this list to change what scrolls by. Each entry is
 	// { text, href? } — with an href it becomes a link, without one it's plain
 	// text. Order is the rotation order; the bar hides itself if the list is empty.
-	// TODO: pull real events/announcements; static placeholders for now.
-	const TICKER_MESSAGES: TickerMessage[] = [
-		{ text: '📅 Next event: YOU For Sale', href: resolve('/events') },
+	// The "Next event" message comes from the events table and is skipped if there's no upcoming event.
+	const TICKER_MESSAGES: TickerMessage[] = $derived([
+		...(nextEvent ? [{ text: `📅 Next event: ${nextEvent.title}`, href: resolve('/events') }] : []),
 		{ text: '💬 Join the conversation on Discord', href: DISCORD_URL },
 		{ text: '🔗 Follow us on LinkedIn', href: LINKEDIN_URL },
 		{ text: '✍️ Read the latest writeups', href: resolve('/blog') }
-	];
+	]);
 
 	const current = $derived(page.url.pathname);
 
