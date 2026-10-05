@@ -8,7 +8,13 @@
 // - blog_posts         writeups/blog (markdown content, optional per-post custom_css/theme)
 // - subscribers        mailing list
 // - intake_submissions junior exec intake form responses
-// - events              upcoming/past events (title, date, location); not modeled yet —
-//                        the home page's "Next Event" tile is a static placeholder until this exists
+// - events              upcoming/past events (title, date, location)
 
-export {};
+import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core';
+
+export const events = sqliteTable('events', {
+	id: integer('id').primaryKey({ autoIncrement: true }),
+	title: text('title').notNull(),
+	date: integer('date', { mode: 'timestamp' }).notNull(),
+	location: text('location')
+});
