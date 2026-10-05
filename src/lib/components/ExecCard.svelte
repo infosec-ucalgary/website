@@ -39,6 +39,8 @@
         border: 1px solid var(--color-border);
         background: var(--color-surface);
         min-width: 0;
+        max-width: 20rem;
+        max-height: 32rem;
     }
 
     .top {
@@ -70,7 +72,8 @@
 
     .picture {
         position: relative;
-        aspect-ratio: 4 / 3;
+        flex: none;
+        aspect-ratio: 1 / 1;
         border: 1px solid var(--color-border);
         border-radius: calc(var(--border-radius) / 2);
         overflow: hidden;
@@ -101,6 +104,7 @@
         margin: 0;
         padding: 0.75rem;
         min-height: 4rem;
+        overflow-y: auto;
         font-size: 0.9rem;
         border: 1px solid var(--color-border);
         border-radius: calc(var(--border-radius) / 2);
