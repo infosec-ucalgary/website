@@ -5,7 +5,7 @@
 	import SiteHeader from '$lib/components/SiteHeader.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
 </script>
 
 <svelte:head>
@@ -27,7 +27,7 @@
 </svelte:head>
 
 <!-- Show sit header on every page -->
-<SiteHeader />
+<SiteHeader nextEvent={data.nextEvent} />
 
 {@render children()}
 
