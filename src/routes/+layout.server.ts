@@ -11,7 +11,13 @@ export const load: LayoutServerLoad = async ({ platform }) => {
 
 	// the soonest event that hasn't happened yet
 	const [nextEvent] = await db
-		.select({ title: events.title, date: events.date })
+		.select({
+			title: events.title,
+			date: events.date,
+			location: events.location,
+			description: events.description,
+			img: events.img
+		})
 		.from(events)
 		.where(gte(events.date, new Date()))
 		.orderBy(asc(events.date))
