@@ -12,7 +12,7 @@
 	},
 	"d1_databases": [
 		{
-			"binding": "website",
+			"binding": "DB",
 			"database_name": "website",
 			"database_id": "eca17764-51ac-4edc-aba1-f582a2483661",
 			"remote": true
