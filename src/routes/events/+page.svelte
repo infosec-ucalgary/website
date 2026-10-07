@@ -49,7 +49,6 @@
 </script>
 
 <div class="page">
-	<h1>Events</h1>
 
 	<div class="calendar">
 		<div class="calendar-header">
