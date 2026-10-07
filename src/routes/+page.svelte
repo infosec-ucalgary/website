@@ -5,6 +5,8 @@
 	import HomeGridBox from "$lib/components/HomeGridBox.svelte";
 	import { resolve } from "$app/paths";
 
+	let { data } = $props();
+
 </script>
 
 <h1 class="sr-only">UCalgary Cyber Security Club</h1>
@@ -12,9 +14,30 @@
 <div class="home">
 	<HomeGrid>
 		<HomeGridBox size="hero">
-			<h2>Upcoming Event</h2>
+			<div class="event-header">
+				<h2>Upcoming Event</h2>
+				{#if data.nextEvent}
+					<span class="event-pill">
+						{data.nextEvent.date.toLocaleDateString()}{data.nextEvent.location ? ` · ${data.nextEvent.location}` : ''}
+					</span>
+				{/if}
+			</div>
 			<hr>
-			<p>Some event description here</p>
+			{#if data.nextEvent}
+				<h3>{data.nextEvent.title}</h3>
+				{#if data.nextEvent.img}
+					<div class="event-media">
+						<img src={data.nextEvent.img} alt={data.nextEvent.title} />
+						{#if data.nextEvent.description}
+							<p class="event-description">{data.nextEvent.description}</p>
+						{/if}
+					</div>
+				{:else if data.nextEvent.description}
+					<p>{data.nextEvent.description}</p>
+				{/if}
+			{:else}
+				<p>No upcoming events.</p>
+			{/if}
 		</HomeGridBox>
 		<HomeGridBox size="small">
 			<h2>Mailing List</h2>
@@ -30,7 +53,18 @@
 			<hr>
 		</HomeGridBox>
 		<HomeGridBox size="square">
-			<h2>Placeholder</h2>
+			<h2>About Us</h2>
+			<p>
+				Founded in 2019 CYBERSEC is a not-for-profit, student-run
+				organization at the University of Calgary focused on providing
+				a platform and hub for students and aspiring cybersecurity
+				professionals to connect and collaborate. Our organization
+				strives to offer the best free lectures, workshops, speaker
+				series, fireside chats, challenge events and networking events
+				available in the ever-expanding realm of cybersecurity.
+				CYBERSEC is also home to the renowned magpieCTF, an annual
+				CTF event for all skill-levels with thousands of dollars in prizes!
+			</p>
 			<hr>
 		</HomeGridBox>
 		<HomeGridBox size="wide">
@@ -70,6 +104,46 @@
 		background-color: var(--color-surface-darker);
 		padding: 1rem 1rem;
 		border-radius: var(--border-radius);
+	}
+
+	.event-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.event-pill {
+		padding: 0.25rem 0.75rem;
+		border-radius: 999px;
+		border: 1px solid var(--color-border);
+		background-color: var(--color-surface-darker);
+		color: var(--color-muted);
+		font-size: 0.875rem;
+		white-space: nowrap;
+	}
+
+	.event-media {
+		position: relative;
+		flex: 1;
+		min-height: 0;
+	}
+
+	.event-media img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: var(--border-radius);
+	}
+
+	.event-description {
+		position: absolute;
+		right: 1rem;
+		bottom: 1rem;
+		max-width: min(24rem, calc(100% - 2rem));
+		background-color: rgb(43 31 65 / 0.85);
+		backdrop-filter: blur(4px);
 	}
 
 	.button-link {
