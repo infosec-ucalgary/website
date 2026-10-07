@@ -1,16 +1,19 @@
-<script>
+<script lang="ts">
 	import ExecCard from "$lib/components/ExecCard.svelte";
 
+    let { data } = $props();
 </script>
 
 <div class="page">
-    <ExecCard
-        name="John Doe"
-        team="Technology"
-        description="The best executive to ever set foot in the club. Lorum ipsum dolor sit amet"
-        image="https://placehold.co/600x400"
-        quote="To piss or not to piss... that is the question"
-    />
+    {#each data.execs as exec (exec.id) }
+        <ExecCard
+            name={exec.name}
+            team={exec.team}
+            description={exec.description}
+            image={exec.img ?? undefined}
+            quote={exec.quote}
+        />
+    {/each}
 </div>
 
 <style>
