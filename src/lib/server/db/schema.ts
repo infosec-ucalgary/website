@@ -47,5 +47,6 @@ export const posts = sqliteTable('posts', {
 	id: integer('id').primaryKey({ autoIncrement: true }),
 	name: text('name').notNull(),
 	style: text('style'),
+	type: text('type').notNull(),
 	content: text('contents').notNull()
 });
