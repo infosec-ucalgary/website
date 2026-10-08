@@ -9,8 +9,8 @@ export const load: PageServerLoad = async ({ platform }) => {
 
 	const db = getDb(platform.env.DB);
 
-	// every exec, grouped by team
-	const roster = await db.select().from(execs).orderBy(asc(execs.team), asc(execs.name));
+	// highest rank first, so each team lists VPs, then Sr. Execs, then Jr. Execs
+	const roster = await db.select().from(execs).orderBy(asc(execs.rank), asc(execs.name));
 
 	return { execs: roster };
 };

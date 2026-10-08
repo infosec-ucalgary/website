@@ -8,7 +8,7 @@
 <nav>
 	<a href={resolve('/admin')}>Dashboard</a>
 	<a href={resolve('/admin/executives')}>Executives</a>
-	<a href={resolve('/admin/writeups')}>Writeups</a>
+	<a href={resolve('/admin/posts')}>Writeups</a>
 	<a href={resolve('/admin/intake')}>Intake</a>
 	<a href={resolve('/admin/mailing-list')}>Mailing List</a>
 </nav>

@@ -9,7 +9,8 @@
 // - subscribers        mailing list
 // - events              upcoming/past events (title, date, location, description, img)
 
-import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core';
+import { sql } from 'drizzle-orm';
+import { sqliteTable, integer, text, uniqueIndex } from 'drizzle-orm/sqlite-core';
 
 export const users = sqliteTable('users', {
 	id: text('id').primaryKey(),
@@ -33,10 +34,15 @@ export const execs = sqliteTable('execs', {
 		.references(() => users.id, { onDelete: 'set null' }),
 	name: text('name').notNull(),
 	team: text('team').notNull(),
+	// 1 President, 2 Sr. VP, 3 VP, 4 Sr. Exec, 5 Jr. Exec (see src/lib/ranks.ts)
+	rank: integer('rank').notNull(),
 	img: text('img'),
 	description: text('description').notNull(),
 	quote: text('quote').notNull()
-});
+}, (t) => [
+	// only one President and one Sr. VP at a time
+	uniqueIndex('execs_one_per_top_rank').on(t.rank).where(sql`rank <= 2`)
+]);
 
 export const subscribers = sqliteTable('subscribers', {
 	email: text('email').primaryKey(),
