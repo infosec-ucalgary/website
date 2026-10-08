@@ -16,7 +16,7 @@ declare global {
 
 		// Populated in src/hooks.server.ts from the session cookie (TODO: implement).
 		interface Locals {
-			user: { discordId: string; username: string; rank: number } | null;
+			user: { id: string; username: string; rank: number } | null;
 		}
 
 		// interface PageData {}

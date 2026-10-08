@@ -1,4 +1,4 @@
-// Session helpers (D1-backed, short TTL so role/rank changes in Discord take effect quickly).
+// Session helpers (D1-backed, short TTL so role/rank changes in Authentik take effect quickly).
 //
 // Plan:
 // - createSession(db, user, rank): insert into `sessions`, return session id

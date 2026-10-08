@@ -1,4 +1,4 @@
-// Org ranks, lowest number = highest authority. Shared by the DB schema, Discord role
+// Org ranks, lowest number = highest authority. Shared by the DB schema, Authentik group
 // resolution and the about page.
 export const RANKS = {
 	PRESIDENT: 1,
