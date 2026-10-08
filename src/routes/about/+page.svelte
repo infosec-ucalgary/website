@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ExecCard from "$lib/components/ExecCard.svelte";
-	import { RANKS, RANK_TITLES } from "$lib/ranks";
+	import { RANKS } from "$lib/ranks";
 	import { SvelteMap } from "svelte/reactivity";
 
     let { data } = $props();
@@ -29,7 +29,7 @@
                 {#each leadership as exec (exec.id)}
                     <ExecCard
                         name={exec.name}
-                        team={RANK_TITLES[exec.rank]}
+                        team={exec.title}
                         description={exec.description}
                         image={exec.img ?? undefined}
                         quote={exec.quote}
@@ -46,7 +46,7 @@
                 {#each members as exec (exec.id)}
                     <ExecCard
                         name={exec.name}
-                        team={RANK_TITLES[exec.rank]}
+                        team={exec.title}
                         description={exec.description}
                         image={exec.img ?? undefined}
                         quote={exec.quote}
