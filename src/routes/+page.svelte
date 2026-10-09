@@ -3,6 +3,7 @@
 <script lang="ts">
 	import HomeGrid from "$lib/components/HomeGrid.svelte";
 	import HomeGridBox from "$lib/components/HomeGridBox.svelte";
+	import Gallery from "$lib/components/Gallery.svelte";
 	import { resolve } from "$app/paths";
 
 	let { data } = $props();
@@ -68,8 +69,9 @@
 			<hr>
 		</HomeGridBox>
 		<HomeGridBox size="wide">
-			<h2>Placeholder</h2>
+			<h2>Gallery</h2>
 			<hr>
+			<Gallery />
 		</HomeGridBox>
 		<HomeGridBox size="small">
 			<h2>Placeholder</h2>
