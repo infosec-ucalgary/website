@@ -1,5 +1,5 @@
 <script lang="ts">
-	// TODO: swap src to https://cdn.ucalgary.club/... once Hadi sets up the CDN
+	// TODO: swap src to https://cdn.ucalgary.club/... once the CDN is set up
 	type Photo = { src: string; alt: string; caption?: string };
 
 	const photos: Photo[] = [
@@ -46,7 +46,6 @@
 		padding-bottom: 0.5rem;
 		scrollbar-width: thin;
 		scrollbar-color: var(--color-brand-700) transparent;
-		flex: 0 0 min(16rem, 80%);
 	}
 
 	figure {
