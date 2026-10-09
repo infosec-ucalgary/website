@@ -3,10 +3,26 @@
 	type Photo = { src: string; alt: string; caption?: string };
 
 	const photos: Photo[] = [
-		{ src: 'https://placehold.co/600x400/2b1f41/c4b5fd?text=Workshop', alt: 'Placeholder workshop photo', caption: 'Workshop' },
-		{ src: 'https://placehold.co/600x400/2b1f41/c4b5fd?text=magpieCTF', alt: 'Placeholder magpieCTF photo', caption: 'magpieCTF' },
-		{ src: 'https://placehold.co/600x400/2b1f41/c4b5fd?text=Speaker+Series', alt: 'Placeholder speaker series photo', caption: 'Speaker Series' },
-		{ src: 'https://placehold.co/600x400/2b1f41/c4b5fd?text=Social', alt: 'Placeholder social event photo', caption: 'Social' }
+		{
+			src: 'https://placehold.co/600x400/2b1f41/c4b5fd?text=Workshop',
+			alt: 'Placeholder workshop photo',
+			caption: 'Workshop'
+		},
+		{
+			src: 'https://placehold.co/600x400/2b1f41/c4b5fd?text=magpieCTF',
+			alt: 'Placeholder magpieCTF photo',
+			caption: 'magpieCTF'
+		},
+		{
+			src: 'https://placehold.co/600x400/2b1f41/c4b5fd?text=Speaker+Series',
+			alt: 'Placeholder speaker series photo',
+			caption: 'Speaker Series'
+		},
+		{
+			src: 'https://placehold.co/600x400/2b1f41/c4b5fd?text=Social',
+			alt: 'Placeholder social event photo',
+			caption: 'Social'
+		}
 	];
 </script>
 
@@ -24,13 +40,13 @@
 <style>
 	.gallery {
 		display: flex;
-        gap: 1rem;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 0.5rem;
-        scrollbar-width: thin;
-        scrollbar-color: var(--color-brand-700) transparent;
-        flex: 0 0 min(16rem, 80%);
+		gap: 1rem;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		padding-bottom: 0.5rem;
+		scrollbar-width: thin;
+		scrollbar-color: var(--color-brand-700) transparent;
+		flex: 0 0 min(16rem, 80%);
 	}
 
 	figure {
